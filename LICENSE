@@ -1,0 +1,32 @@
+version: 0.1pre
+name: shvmaurya
+date:
+  day: 27
+  month: Feb
+  year: 2025
+
+preamble:
+  The licenses accompanying most of the softwares dictate what you're allowed to do.
+  That is theoretically unfeasible because ideally creativity can't and shouldn't be encumbered.
+  No one should be dictating what you can do.
+  Therefore, the aim of this license is to be the one that only dictates what you're
+  NOT ALLOWED to do.
+
+text:
+  p0:
+    The following accompanies what attempts to constitute the 'formal' and 'legal' statements
+    of this 'license text'. The only permitted license term allowed is '(The) NotNot LICENSE.'
+    Throughout this text, it will be referred to simply as, 'this license'.
+  p1:
+    You 'can't prevent others' from having fair and reasonable access to the (source) code
+    of your derivative work of this license. Additional variations of this license will be
+    released in the future permitting users in doing so.
+  p2:
+    There is no connection of you with others who provided code under this license.
+    examples excluse but are not limited to things like;
+    warranty claims, monetary compensation, lawsuits, damages etc. resulting from
+    you using other works released under the terms of this license.
+  p3:
+    You cannot distribute copies of sources released/linked under the terms of this license without a copy
+    or a link to this license text.
+    
