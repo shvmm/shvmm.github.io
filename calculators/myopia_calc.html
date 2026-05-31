@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="icon" href="../images/Schematic_diagram_of_the_human_eye_en.svg.png">
+        <link rel="stylesheet" href="../styles/style.css">
+        <title>AFD Calc</title>
+
+
+    </head>
+    <body>
+
+        <!-- FOCUSING DISTANCE CALCULATOR-->
+
+        <h1>Actual focusing distance calculator</h1>
+        
+        <p class="inputHeading">Current signed Prescription (in Dioptre) of your eye that you're also wearing right now:</p>
+        <input type="text" class="input" id="power_input">
+        <p>The apparent distance at which you're focusing in cms</p>
+        <input type="text" class="input" id="distance_input">
+
+        <input type="button" class="button" value="Calculate Actual Focusing Distance" onclick="calcAFD()">
+        <br>
+        Actual focusing distance comes out to be <span id="balance"></span> cms compared to provided apparent value of <span id="apparent"></span> cm.
+        
+
+
+
+
+        <script>
+            function calcAFD() {
+                var input_power = parseFloat(document.getElementById("power_input").value);
+                var input_distance = parseFloat(document.getElementById("distance_input").value);
+                var actual_focus = 100 / ((100 / input_distance) - input_power)
+
+                document.getElementById("balance").innerHTML = actual_focus.toFixed(2);
+                document.getElementById("apparent").innerHTML = input_distance.toFixed(2);
+            }
+        </script>
+        <hr>
+
+        <!-- LENS FORMULA DISTANCE CALCULATOR-->
+
+        <h1>Image distance calculator based on thin lens relation</h1>
+        
+        <p class="inputHeading">Object distance in cm (Don't enter minus sign):</p>
+        <input type="text" class="input" id="u_input">
+        <p>The focal length of lens in cms</p>
+        <input type="text" class="input" id="f_input">
+
+        <input type="button" class="button" value="Calculate Image Distance" onclick="calcimage()">
+        <br>
+        Image distance will be <span id="dist_image"></span> cms.
+        For virtual objects, it will come out to be negative.<br>
+
+        Magnification is <span id="magnification"></span><br>
+
+        Your k is <span id="k_object"></span>.
+        Your j is <span id="j_image"></span>.
+
+        <script>
+            function calcimage() {
+                var input_u = parseFloat(document.getElementById("u_input").value);
+                var input_f = parseFloat(document.getElementById("f_input").value);
+                var image_dist = input_f * input_u / (input_u - input_f)
+                var k = input_u / input_f
+                var j = image_dist / input_f
+                var m = -j/k;
+                document.getElementById("dist_image").innerHTML = image_dist.toFixed(2);
+
+                document.getElementById("k_object").innerHTML = k.toFixed(2)
+                document.getElementById("j_image").innerHTML = j.toFixed(2)
+                document.getElementById("magnification").innerHTML = m.toFixed(2)
+            }
+        </script>
+
+        <hr>
+        Go back <a href="../index.html">home</a>
+
+    </body>
+</html>

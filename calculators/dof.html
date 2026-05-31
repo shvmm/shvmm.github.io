@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="icon" href="../images/Schematic_diagram_of_the_human_eye_en.svg.png">
+        <link rel="stylesheet" href="../styles/style.css">
+        <title>DOF Calc</title>
+
+
+    </head>
+    <body>
+        <!--
+
+        <h1>Displays a Number Field</h1>
+
+        <label for="quantity">Test Quantity (between 1 and 5):</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="5">
+        <input type="submit">
+
+        -->
+
+        <!-- CALCULATOR FOR CHANGE IN FOCAL LENGTH ACCORDING TO A CONSTANT IMAGE DISTANCE-->
+
+        <h1>Calculator for decrease in focal length (increase in power) due to 'fixed' image distance</h1>
+
+        <span>Enter the focal length corresponding to viewing infinity in cm NOT mm:</span><br>
+        <input type="text" class="input" id="f_inf">
+        <br>
+        <span>Enter the object distance in cm NOT metre/mm:</span><br>
+        <input type="text" class="input" id="u_input">
+
+        <input type="button" class="button" value="Calculate changed focal length" onclick="calc_changed_f()">
+        <br>Decreased focal length is <span id="f_changed"></span> cm.
+
+        <script>
+            function calc_changed_f() {
+
+                var inf_f = parseFloat(document.getElementById("f_inf").value);
+                var obj_dist = parseFloat(document.getElementById("u_input").value);
+
+                var changed_f = (inf_f * obj_dist) / (inf_f + obj_dist);
+                
+                document.getElementById("f_changed").innerHTML = changed_f.toFixed(4);
+            }
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- DEPTH OF FIELD CALCULATOR ------------------------------------------------------------->
+
+        <h1>DoF (Depth of Field) Calculator; Use this calculator to Calculate pinhole effect due to pupillary contractions</h1>
+        
+        <span>Enter the decreased focal length of the lens in cms (it usually changes depending upon the object distance).
+            <input type="text" class="input" id="f_changed_2">
+            <br>A calculator for decreased focal length is provided above.<br>
+        </span>
+
+        
+
+        <br>
+        <span>Enter the Aperture number/F-number (N)</span>
+        <input type="text" class="input" id="N_input">
+
+
+
+        <hr>
+
+        <p>
+            If you know the Aperture size (diameter) instead, use this F-number calculator and THEN ENTER N ABOVE.
+        </p>
+
+        <span>Enter the Aperture size in mm NOT CM:</span><br>
+        <input type="text" class="input" id="a_size" >
+
+        <input type="button" class="button" value="Calculate F-number" onclick="calc_f_number()">
+        <br>The F-number is <span id="Aperture_number"></span>
+
+
+        <script>
+            function calc_f_number() {
+
+                var changed_f = parseFloat(document.getElementById("f_changed_2").value);
+                var aperture = parseFloat(document.getElementById("a_size").value);
+
+                var f_number = changed_f / aperture*10;
+                
+                document.getElementById("Aperture_number").innerHTML = f_number.toFixed(1);
+            }
+        </script>
+
+        <hr>
+
+
+
+        <span>Enter the value of Circle of Confusion (C.o.C) in mm:</span><br>
+        <input type="text" class="input" id="coc_input" ><br>
+
+        <span>Enter image distance formed by the lens in cm NOT mm (In most lenses, this is the reported focal length)</span><br>
+        <input type="text" class="input" id="v_input" >
+
+
+
+        <input type="button" class="button" value="Calculate total D.O.F." onclick="calc_dof()">
+        <br>
+        <!---->
+
+        Your r is <span id="r_coc"></span> focal units.<br>
+        Your k is <span id="k_object"></span> focal units.<br>
+        Your j is <span id="j_image"></span> focal units.<hr width="50%" align="left">
+        
+
+        The angle subtended by Aperture from object is <span id="theta_k"></span> degrees.<br>
+        The angle subtended by Aperture from image is <span id="theta_j"></span> degrees.<hr width="50%" align="left">
+
+        Your j_close is <span id="close_j"></span> focal units.<br>
+        Your j_distant is <span id="distant_j"></span> focal units.<hr width="50%" align="left">
+
+        Your k_close is <span id="close_k"></span> focal units.<br>
+        Your k_distant is <span id="distant_k"></span> focal units.<hr width="50%" align="left">
+
+        Total DoF for the given CoC comes out to be <span id="dof_k"></span> cms.
+
+
+
+
+        <script>
+            function calc_dof() {
+                var changed_f = parseFloat(document.getElementById("f_changed_2").value); // in cm
+                var f_number = parseFloat(document.getElementById("N_input").value);
+                var coc = parseFloat(document.getElementById("coc_input").value); // in mm
+                var v = parseFloat(document.getElementById("v_input").value); // in cm
+
+                var r = coc / (changed_f*10);
+                var j = v / changed_f;
+                var k = j / (j - 1);
+
+                document.getElementById("r_coc").innerHTML = r;
+
+                document.getElementById("k_object").innerHTML = k.toFixed(4);
+                document.getElementById("j_image").innerHTML = j.toFixed(4);
+
+
+                var k_theta = 360*Math.atan(1 / (2*f_number*k)) / Math.PI;
+                var j_theta = 360*Math.atan(1 / (2*f_number*j)) / Math.PI;
+                document.getElementById("theta_k").innerHTML = k_theta.toFixed(2);
+                document.getElementById("theta_j").innerHTML = j_theta.toFixed(2);
+
+
+                var j_close = j / (1 - f_number*r); // image of closer object
+                var j_distant = j / (1 + f_number*r); // image of distant object
+                document.getElementById("close_j").innerHTML = j_close.toFixed(4);
+                document.getElementById("distant_j").innerHTML = j_distant.toFixed(4);
+
+
+                var k_close = j / (j - 1 + f_number*r); // closer object
+                var k_distant = j / (j - 1 - f_number*r); // distant object
+                document.getElementById("close_k").innerHTML = k_close.toFixed(4);
+                document.getElementById("distant_k").innerHTML = k_distant.toFixed(4);
+
+
+                var dofk = (k_distant - k_close) * changed_f; // DOF_K
+                document.getElementById("dof_k").innerHTML = dofk.toFixed(4);
+
+
+
+
+
+
+
+
+
+
+
+            }
+        </script>
+
+        <hr>
+        <a href="../index.html">Go back to home.</a>
+
+    </body>
+</html>

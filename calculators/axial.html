@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="icon" href="../images/Schematic_diagram_of_the_human_eye_en.svg.png">
+        <link rel="stylesheet" href="../styles/style.css">
+        <title>Axial elongation Calc</title>
+
+
+    </head>
+    <body>
+
+        <!-- FOCUSING DISTANCE CALCULATOR
+        <h1>Displays a Number Field</h1>
+
+        <label for="quantity">Test Quantity (between 1 and 5):</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="5">
+        <input type="submit">
+        -->
+
+        <!-- FOCUSING DISTANCE CALCULATOR-->
+
+        <h1>Axial elongation calculator</h1>
+        
+        <p>
+            This calculator assumes that the focusing power of your lens and cornea is simply combined into one lens.
+            So, the results are bound to always be approximate.
+            <br>
+            For values other than that measured by a LASER interferometer, use the second calculator instead.
+            The first calculator should yield more accurate results
+            because it's starting from previously known physical interferometer data.
+        </p>
+        
+        <p>Enter your current Prescription WITHOUT any sign (in Dioptre):</p>
+
+        <input type="text" class="input" id="p_input">
+
+        <hr>
+
+        <p>1. Enter elongated axial distance in mm (Usually given by LASER interferometers):</p>
+        <input type="text" class="input" id="L_input">
+
+        <input type="button" class="button" value="Calculate Axial elongation" onclick="calc_LASER()">
+        <br>
+        Emmetropic retinal distance will be <span id="orig_retina"></span> mm.
+        <br>
+        Your axial elongation is <span id="e_diff_retina"></span> mm.
+
+        <hr>
+        <p>2. Enter The emmetropic axial distance in mm (This will be assumed as relaxed focal length for infinity):</p>
+        <input type="text" class="input" id="f_input">
+
+        <input type="button" class="button" value="Calculate Axial elongation" onclick="calc_axial()">
+        <br>
+        Retinal distance will be <span id="dist_retina"></span> mm.
+        <br>
+        Your axial elongation is <span id="diff_retina"></span> mm.
+        
+
+        
+        
+
+        <script>
+            function calc_axial() {
+                var input_power = parseFloat(document.getElementById("p_input").value);
+                var input_u = 1000 / input_power; // converts power to image distance in mm
+                var input_f = parseFloat(document.getElementById("f_input").value); // in mm
+                
+                var retina_dist = input_f * input_u / (input_u - input_f);
+                
+                var retina_diff = retina_dist - input_f;
+
+                document.getElementById("dist_retina").innerHTML = retina_dist.toFixed(3);
+                document.getElementById("diff_retina").innerHTML = retina_diff.toFixed(3);
+
+
+            }
+
+            function calc_LASER() {
+                var input_power = parseFloat(document.getElementById("p_input").value);
+                var input_u = 1000 / input_power; // converts power to image distance in mm
+                var input_v = parseFloat(document.getElementById("L_input").value); // in mm
+                
+                var retina = input_v * input_u / (input_v + input_u);
+                
+                var retina_diff = input_v - retina;
+
+                document.getElementById("orig_retina").innerHTML = retina.toFixed(3);
+                document.getElementById("e_diff_retina").innerHTML = retina_diff.toFixed(3);
+            }
+        </script>
+
+
+       
+
+
+        <hr>
+        <a href="../index.html">Go back to home.</a>
+    </body>
+</html>
