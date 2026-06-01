@@ -1,20 +1,44 @@
+/* CSS Colour palette for this website will be quantized to multiples of 3.
+ * The allowed (hex) values are: 0, 3, 6, 9, c, f;
+ */
+
+html {
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  background: radial-gradient(ellipse, #84a6e4, #72d3c8);
+}
+
 body {
+  font-family: "Poppins", sans-serif;
   width: 80%;
   margin: 0 auto;
-  bgcolor:#fff;
+  /* background-color: #96cccc; */
   align: center;
   padding-bottom: 10px;
+  padding: 0 20px 20px 20px;
+  /* border: 5px solid black; */
+
+  opacity: 0;
+  animation: fadeIn 1s forwards;
 }
 
 h1 {
-  font-size: 40px;
+  font-family:'Times New Roman', Times, serif;
+  font-style: italic;
+  letter-spacing: -0.05em;
+  font-weight: 200;
+  font-size: 50px;
+  color: #045cad;
   text-align: center;
+  text-shadow: 2px 2px 1px rgb(141, 179, 4);
   margin: 0;
   padding: 20px 0;
 }
 
 p, li {
   font-size: 16px;
+  line-height: 2;
+  letter-spacing: 1px;
 }
 
 hr {
@@ -25,4 +49,33 @@ hr {
 img {
   display: block;
   margin: 0 auto;
+}
+
+.typing-container {
+  font-size: 2rem;
+  /* display: flex; */
+  font-family: "Poppins", sans-serif;
+  /* color: #003960; */
+
+  background: linear-gradient(to top, #ce0707, #02116b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 5px;
+  animation: blink 0.8s infinite;
+  color: #f58326;
+  font-size: 40px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+@keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
 }
