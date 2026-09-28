@@ -1,0 +1,2607 @@
+{
+  "name": "Front home switchboard",
+  "rooms": {
+    "Big Hall": [
+      {
+        "id": "xw4buh",
+        "plateTypeId": "seed-plate-18",
+        "plateTypeLabel": "18M · 3 rows · Alina Grey",
+        "name": "Door Switchboard",
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": "",
+        "capacity": 18,
+        "rows": 3,
+        "items": [
+          {
+            "moduleId": "kbi7u0",
+            "moduleLabel": "Indicator (1M · Alina Black)",
+            "component": "Indicator",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 0
+          },
+          {
+            "moduleId": "seed-blank",
+            "moduleLabel": "Blank (1M · Alina Black)",
+            "component": "Blank",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 1
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 2
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 3
+          },
+          {
+            "moduleId": "seed-blank",
+            "moduleLabel": "Blank (1M · Alina Black)",
+            "component": "Blank",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 4
+          },
+          {
+            "moduleId": "seed-blank",
+            "moduleLabel": "Blank (1M · Alina Black)",
+            "component": "Blank",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 5
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 6
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 7
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 8
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 9
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 10
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 11
+          },
+          {
+            "moduleId": "rl3iqq",
+            "moduleLabel": "Socket 6A (2M · Alina Black)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 12
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 14
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 15
+          },
+          {
+            "moduleId": "rl3iqq",
+            "moduleLabel": "Socket 6A (2M · Alina Black)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 16
+          }
+        ]
+      },
+      {
+        "id": "dvzeui",
+        "plateTypeId": "e6zglv",
+        "plateTypeLabel": "8M · 2 rows · Alina Grey",
+        "name": "Bed Side",
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": "",
+        "capacity": 8,
+        "rows": 2,
+        "items": [
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 0
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 1
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 2
+          },
+          {
+            "moduleId": "seed-blank",
+            "moduleLabel": "Blank (1M · Alina Black)",
+            "component": "Blank",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 3
+          },
+          {
+            "moduleId": "rl3iqq",
+            "moduleLabel": "Socket 6A (2M · Alina Black)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 4
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 6
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 7
+          }
+        ]
+      },
+      {
+        "id": "pqf3x3",
+        "plateTypeId": "e78ovz",
+        "plateTypeLabel": "6M · 1 row · Alina Grey",
+        "name": "Computer",
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": "",
+        "capacity": 6,
+        "rows": 1,
+        "items": [
+          {
+            "moduleId": "seed-blank",
+            "moduleLabel": "Blank (1M · Alina Black)",
+            "component": "Blank",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 0
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 1
+          },
+          {
+            "moduleId": "rl3iqq",
+            "moduleLabel": "Socket 6A (2M · Alina Black)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 2
+          },
+          {
+            "moduleId": "rl3iqq",
+            "moduleLabel": "Socket 6A (2M · Alina Black)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 4
+          }
+        ]
+      },
+      {
+        "id": "9el6hv",
+        "plateTypeId": "e78ovz",
+        "plateTypeLabel": "6M · 1 row · Alina Grey",
+        "name": "Sofa",
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": "",
+        "capacity": 6,
+        "rows": 1,
+        "items": [
+          {
+            "moduleId": "rl3iqq",
+            "moduleLabel": "Socket 6A (2M · Alina Black)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 0
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 2
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 3
+          },
+          {
+            "moduleId": "rl3iqq",
+            "moduleLabel": "Socket 6A (2M · Alina Black)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 4
+          }
+        ]
+      },
+      {
+        "id": "bsqdg4",
+        "plateTypeId": "e78ovz",
+        "plateTypeLabel": "6M · 1 row · Alina Grey",
+        "name": "TV",
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": "",
+        "capacity": 6,
+        "rows": 1,
+        "items": [
+          {
+            "moduleId": "rl3iqq",
+            "moduleLabel": "Socket 6A (2M · Alina Black)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 0
+          },
+          {
+            "moduleId": "rl3iqq",
+            "moduleLabel": "Socket 6A (2M · Alina Black)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 2
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 4
+          },
+          {
+            "moduleId": "seed-blank",
+            "moduleLabel": "Blank (1M · Alina Black)",
+            "component": "Blank",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 5
+          }
+        ]
+      },
+      {
+        "id": "y9y7vw",
+        "plateTypeId": "5k4ghg",
+        "plateTypeLabel": "8M · 1 row · Alina Grey",
+        "name": "Cooler",
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": "",
+        "capacity": 8,
+        "rows": 1,
+        "items": [
+          {
+            "moduleId": "41jg14",
+            "moduleLabel": "MCB C25 (1M · Alina Black)",
+            "component": "MCB C25",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 0
+          },
+          {
+            "moduleId": "seed-blank",
+            "moduleLabel": "Blank (1M · Alina Black)",
+            "component": "Blank",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 1
+          },
+          {
+            "moduleId": "y0jqa0",
+            "moduleLabel": "Socket 16A (2M · Alina Black)",
+            "component": "Socket 16A",
+            "modules": 2,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 2
+          },
+          {
+            "moduleId": "z6pgww",
+            "moduleLabel": "Switch 16A (1M · Alina Black)",
+            "component": "Switch 16A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 4
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 5
+          },
+          {
+            "moduleId": "rl3iqq",
+            "moduleLabel": "Socket 6A (2M · Alina Black)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 6
+          }
+        ]
+      },
+      {
+        "id": "giylu7",
+        "plateTypeId": "cavz2x",
+        "plateTypeLabel": "2M · 1 row · Alina Grey",
+        "name": "AC",
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": "",
+        "capacity": 2,
+        "rows": 1,
+        "items": [
+          {
+            "moduleId": "fagwaf",
+            "moduleLabel": "Socket 25A HD (2M · Alina Black)",
+            "component": "Socket 25A HD",
+            "modules": 2,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 0
+          }
+        ]
+      }
+    ],
+    "Small Room": [
+      {
+        "id": "d6it56",
+        "plateTypeId": "3drpzx",
+        "plateTypeLabel": "12M · 2 rows · Vensor Black",
+        "name": "Door Switchboard copy",
+        "color": "Vensor Black",
+        "colorCode": "#000000",
+        "description": "",
+        "capacity": 12,
+        "rows": 2,
+        "items": [
+          {
+            "moduleId": "sckyip",
+            "moduleLabel": "Switch 6A (1M · Vensor White)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Vensor White",
+            "colorCode": "#ffffff",
+            "at": 0
+          },
+          {
+            "moduleId": "zz4rod",
+            "moduleLabel": "Blank (1M · Vensor White)",
+            "component": "Blank",
+            "modules": 1,
+            "color": "Vensor White",
+            "colorCode": "#ffffff",
+            "at": 1
+          },
+          {
+            "moduleId": "sckyip",
+            "moduleLabel": "Switch 6A (1M · Vensor White)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Vensor White",
+            "colorCode": "#ffffff",
+            "at": 2
+          },
+          {
+            "moduleId": "zz4rod",
+            "moduleLabel": "Blank (1M · Vensor White)",
+            "component": "Blank",
+            "modules": 1,
+            "color": "Vensor White",
+            "colorCode": "#ffffff",
+            "at": 3
+          },
+          {
+            "moduleId": "k5dl4s",
+            "moduleLabel": "4in1 Touch Switch (2M · AZIOT White)",
+            "component": "4in1 Touch Switch",
+            "modules": 2,
+            "color": "AZIOT White",
+            "colorCode": "#ffffff",
+            "at": 4
+          },
+          {
+            "moduleId": "on9efr",
+            "moduleLabel": "Indicator (1M · Vensor White)",
+            "component": "Indicator",
+            "modules": 1,
+            "color": "Vensor White",
+            "colorCode": "#ffffff",
+            "at": 6
+          },
+          {
+            "moduleId": "sckyip",
+            "moduleLabel": "Switch 6A (1M · Vensor White)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Vensor White",
+            "colorCode": "#ffffff",
+            "at": 7
+          },
+          {
+            "moduleId": "sckyip",
+            "moduleLabel": "Switch 6A (1M · Vensor White)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Vensor White",
+            "colorCode": "#ffffff",
+            "at": 8
+          },
+          {
+            "moduleId": "sckyip",
+            "moduleLabel": "Switch 6A (1M · Vensor White)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Vensor White",
+            "colorCode": "#ffffff",
+            "at": 9
+          },
+          {
+            "moduleId": "yko5el",
+            "moduleLabel": "Socket 6A (2M · Vensor White)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Vensor White",
+            "colorCode": "#ffffff",
+            "at": 10
+          }
+        ]
+      },
+      {
+        "id": "6y81sv",
+        "plateTypeId": "7d5sba",
+        "plateTypeLabel": "8M · 1 row · Alina Black",
+        "name": "Cooler",
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": "",
+        "capacity": 8,
+        "rows": 1,
+        "items": [
+          {
+            "moduleId": "stlhqf",
+            "moduleLabel": "Blank (1M · Alina White)",
+            "component": "Blank",
+            "modules": 1,
+            "color": "Alina White",
+            "colorCode": "#f8f8f6",
+            "at": 0
+          },
+          {
+            "moduleId": "stlhqf",
+            "moduleLabel": "Blank (1M · Alina White)",
+            "component": "Blank",
+            "modules": 1,
+            "color": "Alina White",
+            "colorCode": "#f8f8f6",
+            "at": 1
+          },
+          {
+            "moduleId": "ndu4m0",
+            "moduleLabel": "Socket 16A (2M · Alina White)",
+            "component": "Socket 16A",
+            "modules": 2,
+            "color": "Alina White",
+            "colorCode": "#f8f8f6",
+            "at": 2
+          },
+          {
+            "moduleId": "74pjea",
+            "moduleLabel": "Switch 16A (1M · Alina White)",
+            "component": "Switch 16A",
+            "modules": 1,
+            "color": "Alina White",
+            "colorCode": "#f8f8f6",
+            "at": 4
+          },
+          {
+            "moduleId": "seed-switch",
+            "moduleLabel": "Switch 6A (1M · Alina White)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina White",
+            "colorCode": "#f8f8f6",
+            "at": 5
+          },
+          {
+            "moduleId": "seed-socket",
+            "moduleLabel": "Socket 6A (2M · Alina White)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina White",
+            "colorCode": "#f8f8f6",
+            "at": 6
+          }
+        ]
+      },
+      {
+        "id": "q00ihm",
+        "plateTypeId": "pohwx6",
+        "plateTypeLabel": "6M · 1 row · Alina Black",
+        "name": "Bedside",
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": "",
+        "capacity": 6,
+        "rows": 1,
+        "items": [
+          {
+            "moduleId": "seed-socket",
+            "moduleLabel": "Socket 6A (2M · Alina White)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina White",
+            "colorCode": "#f8f8f6",
+            "at": 0
+          },
+          {
+            "moduleId": "seed-switch",
+            "moduleLabel": "Switch 6A (1M · Alina White)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina White",
+            "colorCode": "#f8f8f6",
+            "at": 2
+          },
+          {
+            "moduleId": "seed-switch",
+            "moduleLabel": "Switch 6A (1M · Alina White)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina White",
+            "colorCode": "#f8f8f6",
+            "at": 3
+          },
+          {
+            "moduleId": "seed-socket",
+            "moduleLabel": "Socket 6A (2M · Alina White)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina White",
+            "colorCode": "#f8f8f6",
+            "at": 4
+          }
+        ]
+      }
+    ],
+    "Kitchen": [
+      {
+        "id": "h94pot",
+        "plateTypeId": "7gos0c",
+        "plateTypeLabel": "12M · 2 rows · Alina Black",
+        "name": "Fridge",
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": "",
+        "capacity": 12,
+        "rows": 2,
+        "items": [
+          {
+            "moduleId": "8o0xeu",
+            "moduleLabel": "Indicator (1M · Alina Grey)",
+            "component": "Indicator",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 0
+          },
+          {
+            "moduleId": "8ayxcj",
+            "moduleLabel": "Blank (1M · Alina Grey)",
+            "component": "Blank",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 1
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 2
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 3
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 4
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 5
+          },
+          {
+            "moduleId": "fgb8bl",
+            "moduleLabel": "Socket 6A (2M · Alina Grey)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 6
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 8
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 9
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 10
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 11
+          }
+        ]
+      },
+      {
+        "id": "q42oz2",
+        "plateTypeId": "pohwx6",
+        "plateTypeLabel": "6M · 1 row · Alina Black",
+        "name": "Induction",
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": "",
+        "capacity": 6,
+        "rows": 1,
+        "items": [
+          {
+            "moduleId": "igqsac",
+            "moduleLabel": "Socket 16A (2M · Alina Grey)",
+            "component": "Socket 16A",
+            "modules": 2,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 0
+          },
+          {
+            "moduleId": "dd7fqv",
+            "moduleLabel": "Switch 16A (1M · Alina Grey)",
+            "component": "Switch 16A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 2
+          },
+          {
+            "moduleId": "dd7fqv",
+            "moduleLabel": "Switch 16A (1M · Alina Grey)",
+            "component": "Switch 16A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 3
+          },
+          {
+            "moduleId": "igqsac",
+            "moduleLabel": "Socket 16A (2M · Alina Grey)",
+            "component": "Socket 16A",
+            "modules": 2,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 4
+          }
+        ]
+      },
+      {
+        "id": "an3swp",
+        "plateTypeId": "pohwx6",
+        "plateTypeLabel": "6M · 1 row · Alina Black",
+        "name": "RO",
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": "",
+        "capacity": 6,
+        "rows": 1,
+        "items": [
+          {
+            "moduleId": "fgb8bl",
+            "moduleLabel": "Socket 6A (2M · Alina Grey)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 0
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 2
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 3
+          },
+          {
+            "moduleId": "fgb8bl",
+            "moduleLabel": "Socket 6A (2M · Alina Grey)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 4
+          }
+        ]
+      },
+      {
+        "id": "1dq74x",
+        "plateTypeId": "a1wvxb",
+        "plateTypeLabel": "8M · 2 rows · Alina Black",
+        "name": "Inverter",
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": "",
+        "capacity": 8,
+        "rows": 2,
+        "items": [
+          {
+            "moduleId": "z6pgww",
+            "moduleLabel": "Switch 16A (1M · Alina Black)",
+            "component": "Switch 16A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 0
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 1
+          },
+          {
+            "moduleId": "z6pgww",
+            "moduleLabel": "Switch 16A (1M · Alina Black)",
+            "component": "Switch 16A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 2
+          },
+          {
+            "moduleId": "4v76n7",
+            "moduleLabel": "2way Switch 16A (1M · Alina Black)",
+            "component": "2way Switch 16A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 3
+          },
+          {
+            "moduleId": "y0jqa0",
+            "moduleLabel": "Socket 16A (2M · Alina Black)",
+            "component": "Socket 16A",
+            "modules": 2,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 4
+          },
+          {
+            "moduleId": "y0jqa0",
+            "moduleLabel": "Socket 16A (2M · Alina Black)",
+            "component": "Socket 16A",
+            "modules": 2,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 6
+          }
+        ]
+      }
+    ],
+    "Bath and WM": [
+      {
+        "id": "hsye92",
+        "plateTypeId": "e78ovz",
+        "plateTypeLabel": "6M · 1 row · Alina Grey",
+        "name": "Bath",
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": "",
+        "capacity": 6,
+        "rows": 1,
+        "items": [
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 0
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 1
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 2
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 3
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 4
+          },
+          {
+            "moduleId": "z6pgww",
+            "moduleLabel": "Switch 16A (1M · Alina Black)",
+            "component": "Switch 16A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 5
+          }
+        ]
+      },
+      {
+        "id": "2gny4o",
+        "plateTypeId": "e6zglv",
+        "plateTypeLabel": "8M · 2 rows · Alina Grey",
+        "name": "WM",
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": "",
+        "capacity": 8,
+        "rows": 2,
+        "items": [
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 0
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 1
+          },
+          {
+            "moduleId": "8ayxcj",
+            "moduleLabel": "Blank (1M · Alina Grey)",
+            "component": "Blank",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 2
+          },
+          {
+            "moduleId": "dd7fqv",
+            "moduleLabel": "Switch 16A (1M · Alina Grey)",
+            "component": "Switch 16A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 3
+          },
+          {
+            "moduleId": "fgb8bl",
+            "moduleLabel": "Socket 6A (2M · Alina Grey)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 4
+          },
+          {
+            "moduleId": "igqsac",
+            "moduleLabel": "Socket 16A (2M · Alina Grey)",
+            "component": "Socket 16A",
+            "modules": 2,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 6
+          }
+        ]
+      },
+      {
+        "id": "teyeow",
+        "plateTypeId": "ynn49c",
+        "plateTypeLabel": "2M · 1 row · Alina Black",
+        "name": "Geyser",
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": "",
+        "capacity": 2,
+        "rows": 1,
+        "items": [
+          {
+            "moduleId": "r317q0",
+            "moduleLabel": "Socket 25A HD (2M · Alina Grey)",
+            "component": "Socket 25A HD",
+            "modules": 2,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 0
+          }
+        ]
+      }
+    ],
+    "Outdoors": [
+      {
+        "id": "mbzonq",
+        "plateTypeId": "a1wvxb",
+        "plateTypeLabel": "8M · 2 rows · Alina Black",
+        "name": "Outside",
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": "",
+        "capacity": 8,
+        "rows": 2,
+        "items": [
+          {
+            "moduleId": "8o0xeu",
+            "moduleLabel": "Indicator (1M · Alina Grey)",
+            "component": "Indicator",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 0
+          },
+          {
+            "moduleId": "dd7fqv",
+            "moduleLabel": "Switch 16A (1M · Alina Grey)",
+            "component": "Switch 16A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 1
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 2
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 3
+          },
+          {
+            "moduleId": "igqsac",
+            "moduleLabel": "Socket 16A (2M · Alina Grey)",
+            "component": "Socket 16A",
+            "modules": 2,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 4
+          },
+          {
+            "moduleId": "fgb8bl",
+            "moduleLabel": "Socket 6A (2M · Alina Grey)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 6
+          }
+        ]
+      }
+    ],
+    "Stairs": [
+      {
+        "id": "gmm8la",
+        "plateTypeId": "7d5sba",
+        "plateTypeLabel": "8M · 1 row · Alina Black",
+        "name": "Stairs",
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": "",
+        "capacity": 8,
+        "rows": 1,
+        "items": [
+          {
+            "moduleId": "fgb8bl",
+            "moduleLabel": "Socket 6A (2M · Alina Grey)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 0
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 2
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 3
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 4
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 5
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 6
+          },
+          {
+            "moduleId": "s2isu3",
+            "moduleLabel": "2way Switch 6A (1M · Alina Grey)",
+            "component": "2way Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 7
+          }
+        ]
+      },
+      {
+        "id": "9mt1ip",
+        "plateTypeId": "pohwx6",
+        "plateTypeLabel": "6M · 1 row · Alina Black",
+        "name": "Terrace",
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": "",
+        "capacity": 6,
+        "rows": 1,
+        "items": [
+          {
+            "moduleId": "8ayxcj",
+            "moduleLabel": "Blank (1M · Alina Grey)",
+            "component": "Blank",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 0
+          },
+          {
+            "moduleId": "8ayxcj",
+            "moduleLabel": "Blank (1M · Alina Grey)",
+            "component": "Blank",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 1
+          },
+          {
+            "moduleId": "s2isu3",
+            "moduleLabel": "2way Switch 6A (1M · Alina Grey)",
+            "component": "2way Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 2
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 3
+          },
+          {
+            "moduleId": "fgb8bl",
+            "moduleLabel": "Socket 6A (2M · Alina Grey)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 4
+          }
+        ]
+      }
+    ],
+    "Veranda": [
+      {
+        "id": "dqm8zg",
+        "plateTypeId": "go78vn",
+        "plateTypeLabel": "18M · 3 rows · Alina Black",
+        "name": "Veranda",
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": "",
+        "capacity": 18,
+        "rows": 3,
+        "items": [
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 0
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 1
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 2
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 3
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 4
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 5
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 6
+          },
+          {
+            "moduleId": "xjnjho",
+            "moduleLabel": "Switch 6A (1M · Alina Black)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Black",
+            "colorCode": "#252525",
+            "at": 7
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 8
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 9
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 10
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 11
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 12
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 13
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 14
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 15
+          },
+          {
+            "moduleId": "fgb8bl",
+            "moduleLabel": "Socket 6A (2M · Alina Grey)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 16
+          }
+        ]
+      },
+      {
+        "id": "j4a7al",
+        "plateTypeId": "7d5sba",
+        "plateTypeLabel": "8M · 1 row · Alina Black",
+        "name": "Router",
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": "",
+        "capacity": 8,
+        "rows": 1,
+        "items": [
+          {
+            "moduleId": "8ayxcj",
+            "moduleLabel": "Blank (1M · Alina Grey)",
+            "component": "Blank",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 0
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 1
+          },
+          {
+            "moduleId": "fgb8bl",
+            "moduleLabel": "Socket 6A (2M · Alina Grey)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 2
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 4
+          },
+          {
+            "moduleId": "qlr6ua",
+            "moduleLabel": "Switch 6A (1M · Alina Grey)",
+            "component": "Switch 6A",
+            "modules": 1,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 5
+          },
+          {
+            "moduleId": "fgb8bl",
+            "moduleLabel": "Socket 6A (2M · Alina Grey)",
+            "component": "Socket 6A",
+            "modules": 2,
+            "color": "Alina Grey",
+            "colorCode": "#c9b48a",
+            "at": 6
+          }
+        ]
+      }
+    ]
+  },
+  "author": "Shvm",
+  "description": "Front home electrical switchboards",
+  "roomOrder": [
+    "Small Room",
+    "Big Hall",
+    "Kitchen",
+    "Bath and WM",
+    "Veranda",
+    "Stairs",
+    "Outdoors"
+  ],
+  "roomElectricals": {
+    "Big Hall": [
+      {
+        "id": "3fhphv",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "cvfqlc",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "49bi50",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "5qirqi",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "5dph2d",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "sguni6",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "m6bbjb",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "kseeyp",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "768sh1",
+        "electricalId": "2hdo9y",
+        "name": "BLDC Fan",
+        "description": ""
+      },
+      {
+        "id": "s1adhd",
+        "electricalId": "2hdo9y",
+        "name": "BLDC Fan",
+        "description": ""
+      },
+      {
+        "id": "j6bz7f",
+        "electricalId": "6l7450",
+        "name": "Baton Holder",
+        "description": ""
+      },
+      {
+        "id": "4bfbxe",
+        "electricalId": "6l7450",
+        "name": "Baton Holder",
+        "description": ""
+      },
+      {
+        "id": "7yu91t",
+        "electricalId": "1gnu1m",
+        "name": "Fan Plate",
+        "description": ""
+      },
+      {
+        "id": "aem7a9",
+        "electricalId": "1gnu1m",
+        "name": "Fan Plate",
+        "description": ""
+      },
+      {
+        "id": "da22nu",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "z86y12",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "tpv457",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "z8gcwf",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "aj6s5b",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "xflnet",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      }
+    ],
+    "Small Room": [
+      {
+        "id": "1r9978",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "ick7xu",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "rzugcz",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "eokjsr",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "ahtuj6",
+        "electricalId": "2hdo9y",
+        "name": "BLDC Fan",
+        "description": ""
+      },
+      {
+        "id": "inn8o5",
+        "electricalId": "iv4n7r",
+        "name": "Ceiling Rose",
+        "description": ""
+      },
+      {
+        "id": "t2896o",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "cm1966",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "bwdvc3",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "8vcifs",
+        "electricalId": "6l7450",
+        "name": "Baton Holder",
+        "description": ""
+      },
+      {
+        "id": "ckmlnp",
+        "electricalId": "43i1rs",
+        "name": "LED Bulb",
+        "description": ""
+      },
+      {
+        "id": "5ygu5i",
+        "electricalId": "1gnu1m",
+        "name": "Fan Plate",
+        "description": ""
+      }
+    ],
+    "Kitchen": [
+      {
+        "id": "bn80ow",
+        "electricalId": "jkoi3m",
+        "name": "Warm White Concealed LED 9W",
+        "description": "9 Watts of extra lighting power"
+      },
+      {
+        "id": "rx2lgg",
+        "electricalId": "jkoi3m",
+        "name": "Warm White Concealed LED 9W",
+        "description": "9 Watts of extra lighting power"
+      },
+      {
+        "id": "016b4e",
+        "electricalId": "jkoi3m",
+        "name": "Warm White Concealed LED 9W",
+        "description": "9 Watts of extra lighting power"
+      },
+      {
+        "id": "nfbkk7",
+        "electricalId": "jkoi3m",
+        "name": "Warm White Concealed LED 9W",
+        "description": "9 Watts of extra lighting power"
+      },
+      {
+        "id": "zlesfd",
+        "electricalId": "iv4n7r",
+        "name": "Ceiling Rose",
+        "description": ""
+      },
+      {
+        "id": "9f71kn",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "kp5ipb",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "daiyh2",
+        "electricalId": "1gnu1m",
+        "name": "Fan Plate",
+        "description": ""
+      },
+      {
+        "id": "cj4hd2",
+        "electricalId": "6l7450",
+        "name": "Baton Holder",
+        "description": ""
+      },
+      {
+        "id": "23xkud",
+        "electricalId": "43i1rs",
+        "name": "LED Bulb",
+        "description": ""
+      },
+      {
+        "id": "83j5rj",
+        "electricalId": "egrpfv",
+        "name": "9x7 Cover",
+        "description": ""
+      },
+      {
+        "id": "uh3phx",
+        "electricalId": "or254z",
+        "name": "16M DB",
+        "description": ""
+      },
+      {
+        "id": "pkojmf",
+        "electricalId": "la1s4l",
+        "name": "4x4 Cover",
+        "description": ""
+      },
+      {
+        "id": "i9r01b",
+        "electricalId": "qkkwh7",
+        "name": "Angle Holder",
+        "description": ""
+      }
+    ],
+    "Bath and WM": [
+      {
+        "id": "lvb391",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "8vq2yo",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "jbjhk5",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "4xzhwl",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "0jvxnx",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "6tbx11",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "qjmnsk",
+        "electricalId": "43i1rs",
+        "name": "LED Bulb",
+        "description": ""
+      },
+      {
+        "id": "bzgwby",
+        "electricalId": "43i1rs",
+        "name": "LED Bulb",
+        "description": ""
+      },
+      {
+        "id": "q8hzsq",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "ks2izd",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "qr56nv",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "n0s692",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "lvmq6h",
+        "electricalId": "6l7450",
+        "name": "Baton Holder",
+        "description": ""
+      },
+      {
+        "id": "k2bdkm",
+        "electricalId": "6l7450",
+        "name": "Baton Holder",
+        "description": ""
+      }
+    ],
+    "Outdoors": [
+      {
+        "id": "qzjnic",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "wm6sf5",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "cvuq8b",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "4eqw96",
+        "electricalId": "6l7450",
+        "name": "Baton Holder",
+        "description": ""
+      },
+      {
+        "id": "g4f48u",
+        "electricalId": "43i1rs",
+        "name": "LED Bulb",
+        "description": ""
+      },
+      {
+        "id": "kat2ul",
+        "electricalId": "rt0ppo",
+        "name": "Warm White Concealed LED 6W",
+        "description": ""
+      },
+      {
+        "id": "8rgzac",
+        "electricalId": "rt0ppo",
+        "name": "Warm White Concealed LED 6W",
+        "description": ""
+      },
+      {
+        "id": "c47aei",
+        "electricalId": "rt0ppo",
+        "name": "Warm White Concealed LED 6W",
+        "description": ""
+      },
+      {
+        "id": "gw3a2r",
+        "electricalId": "rt0ppo",
+        "name": "Warm White Concealed LED 6W",
+        "description": ""
+      },
+      {
+        "id": "43pzyw",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "ea7jfn",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "qbulnh",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      }
+    ],
+    "Stairs": [
+      {
+        "id": "qt1tgd",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "dbk3av",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "isay4i",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "61sip8",
+        "electricalId": "6l7450",
+        "name": "Baton Holder",
+        "description": ""
+      },
+      {
+        "id": "hob7yv",
+        "electricalId": "43i1rs",
+        "name": "LED Bulb",
+        "description": ""
+      },
+      {
+        "id": "y6q9hl",
+        "electricalId": "rt0ppo",
+        "name": "Warm White Concealed LED 6W",
+        "description": ""
+      },
+      {
+        "id": "f11q6e",
+        "electricalId": "rt0ppo",
+        "name": "Warm White Concealed LED 6W",
+        "description": ""
+      }
+    ],
+    "Veranda": [
+      {
+        "id": "4nyppy",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "9o9g27",
+        "electricalId": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "maw306",
+        "electricalId": "1gnu1m",
+        "name": "Fan Plate",
+        "description": ""
+      },
+      {
+        "id": "bxomsj",
+        "electricalId": "6l7450",
+        "name": "Baton Holder",
+        "description": ""
+      },
+      {
+        "id": "qym1go",
+        "electricalId": "43i1rs",
+        "name": "LED Bulb",
+        "description": ""
+      },
+      {
+        "id": "3okebv",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "2cck8f",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "nm7kif",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "zwb4gl",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "5uq4pn",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "oqoctl",
+        "electricalId": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      }
+    ]
+  },
+  "schema": {
+    "name": "Havells Standard Schema",
+    "colors": {
+      "Alina White": "#f8f8f6",
+      "Alina Grey": "#c9b48a",
+      "Alina Black": "#252525",
+      "Vensor White": "#ffffff",
+      "Vensor Black": "#000000",
+      "AZIOT White": "#ffffff"
+    },
+    "plates": [
+      {
+        "id": "seed-plate-2",
+        "capacity": 2,
+        "rows": 1,
+        "description": "",
+        "colorName": "Alina White",
+        "colorCode": "#f8f8f6"
+      },
+      {
+        "id": "seed-plate-3",
+        "capacity": 3,
+        "rows": 1,
+        "description": "",
+        "colorName": "Alina White",
+        "colorCode": "#f8f8f6"
+      },
+      {
+        "id": "seed-plate-4",
+        "capacity": 4,
+        "rows": 1,
+        "description": "",
+        "colorName": "Alina White",
+        "colorCode": "#f8f8f6"
+      },
+      {
+        "id": "seed-plate-6",
+        "capacity": 6,
+        "rows": 1,
+        "description": "",
+        "colorName": "Alina White",
+        "colorCode": "#f8f8f6"
+      },
+      {
+        "id": "seed-plate-8",
+        "capacity": 8,
+        "rows": 1,
+        "description": "",
+        "colorName": "Alina White",
+        "colorCode": "#f8f8f6"
+      },
+      {
+        "id": "seed-plate-12",
+        "capacity": 12,
+        "rows": 2,
+        "description": "",
+        "colorName": "Alina White",
+        "colorCode": "#f8f8f6"
+      },
+      {
+        "id": "seed-plate-18",
+        "capacity": 18,
+        "rows": 3,
+        "description": "",
+        "colorName": "Alina Grey",
+        "colorCode": "#c9b48a"
+      },
+      {
+        "id": "7gos0c",
+        "capacity": 12,
+        "rows": 2,
+        "description": "",
+        "colorName": "Alina Black",
+        "colorCode": "#252525"
+      },
+      {
+        "id": "go78vn",
+        "capacity": 18,
+        "rows": 3,
+        "description": "",
+        "colorName": "Alina Black",
+        "colorCode": "#252525"
+      },
+      {
+        "id": "pohwx6",
+        "capacity": 6,
+        "rows": 1,
+        "description": "",
+        "colorName": "Alina Black",
+        "colorCode": "#252525"
+      },
+      {
+        "id": "7d5sba",
+        "capacity": 8,
+        "rows": 1,
+        "description": "",
+        "colorName": "Alina Black",
+        "colorCode": "#252525"
+      },
+      {
+        "id": "5k4ghg",
+        "capacity": 8,
+        "rows": 1,
+        "description": "",
+        "colorName": "Alina Grey",
+        "colorCode": "#c9b48a"
+      },
+      {
+        "id": "a1wvxb",
+        "capacity": 8,
+        "rows": 2,
+        "description": "",
+        "colorName": "Alina Black",
+        "colorCode": "#252525"
+      },
+      {
+        "id": "e6zglv",
+        "capacity": 8,
+        "rows": 2,
+        "description": "",
+        "colorName": "Alina Grey",
+        "colorCode": "#c9b48a"
+      },
+      {
+        "id": "e78ovz",
+        "capacity": 6,
+        "rows": 1,
+        "description": "",
+        "colorName": "Alina Grey",
+        "colorCode": "#c9b48a"
+      },
+      {
+        "id": "fd997n",
+        "capacity": 12,
+        "rows": 2,
+        "description": "",
+        "colorName": "Alina Grey",
+        "colorCode": "#c9b48a"
+      },
+      {
+        "id": "ynn49c",
+        "capacity": 2,
+        "rows": 1,
+        "description": "",
+        "colorName": "Alina Black",
+        "colorCode": "#252525"
+      },
+      {
+        "id": "cavz2x",
+        "capacity": 2,
+        "rows": 1,
+        "description": "",
+        "colorName": "Alina Grey",
+        "colorCode": "#c9b48a"
+      },
+      {
+        "id": "3drpzx",
+        "capacity": 12,
+        "rows": 2,
+        "description": "",
+        "colorName": "Vensor Black",
+        "colorCode": "#000000"
+      }
+    ],
+    "components": [
+      {
+        "id": "seed-switch",
+        "name": "Switch 6A",
+        "modules": 1,
+        "color": "Alina White",
+        "colorCode": "#f8f8f6",
+        "description": ""
+      },
+      {
+        "id": "seed-blank",
+        "name": "Blank",
+        "modules": 1,
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": ""
+      },
+      {
+        "id": "seed-socket",
+        "name": "Socket 6A",
+        "modules": 2,
+        "color": "Alina White",
+        "colorCode": "#f8f8f6",
+        "description": ""
+      },
+      {
+        "id": "rl3iqq",
+        "name": "Socket 6A",
+        "modules": 2,
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": ""
+      },
+      {
+        "id": "qlr6ua",
+        "name": "Switch 6A",
+        "modules": 1,
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": ""
+      },
+      {
+        "id": "fgb8bl",
+        "name": "Socket 6A",
+        "modules": 2,
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": ""
+      },
+      {
+        "id": "igqsac",
+        "name": "Socket 16A",
+        "modules": 2,
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": ""
+      },
+      {
+        "id": "dd7fqv",
+        "name": "Switch 16A",
+        "modules": 1,
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": ""
+      },
+      {
+        "id": "stlhqf",
+        "name": "Blank",
+        "modules": 1,
+        "color": "Alina White",
+        "colorCode": "#f8f8f6",
+        "description": ""
+      },
+      {
+        "id": "74pjea",
+        "name": "Switch 16A",
+        "modules": 1,
+        "color": "Alina White",
+        "colorCode": "#f8f8f6",
+        "description": ""
+      },
+      {
+        "id": "ndu4m0",
+        "name": "Socket 16A",
+        "modules": 2,
+        "color": "Alina White",
+        "colorCode": "#f8f8f6",
+        "description": ""
+      },
+      {
+        "id": "8ayxcj",
+        "name": "Blank",
+        "modules": 1,
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": ""
+      },
+      {
+        "id": "xjnjho",
+        "name": "Switch 6A",
+        "modules": 1,
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": ""
+      },
+      {
+        "id": "z6pgww",
+        "name": "Switch 16A",
+        "modules": 1,
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": ""
+      },
+      {
+        "id": "y0jqa0",
+        "name": "Socket 16A",
+        "modules": 2,
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": ""
+      },
+      {
+        "id": "k5dl4s",
+        "name": "4in1 Touch Switch",
+        "modules": 2,
+        "color": "AZIOT White",
+        "colorCode": "#ffffff",
+        "description": ""
+      },
+      {
+        "id": "4v76n7",
+        "name": "2way Switch 16A",
+        "modules": 1,
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": ""
+      },
+      {
+        "id": "41jg14",
+        "name": "MCB C25",
+        "modules": 1,
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": ""
+      },
+      {
+        "id": "c2ladt",
+        "name": "MCB C25",
+        "modules": 1,
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": ""
+      },
+      {
+        "id": "fagwaf",
+        "name": "Socket 25A HD",
+        "modules": 2,
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": ""
+      },
+      {
+        "id": "r317q0",
+        "name": "Socket 25A HD",
+        "modules": 2,
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": ""
+      },
+      {
+        "id": "kbi7u0",
+        "name": "Indicator",
+        "modules": 1,
+        "color": "Alina Black",
+        "colorCode": "#252525",
+        "description": ""
+      },
+      {
+        "id": "8o0xeu",
+        "name": "Indicator",
+        "modules": 1,
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": ""
+      },
+      {
+        "id": "u933lr",
+        "name": "Indicator",
+        "modules": 1,
+        "color": "Alina White",
+        "colorCode": "#f8f8f6",
+        "description": ""
+      },
+      {
+        "id": "s2isu3",
+        "name": "2way Switch 6A",
+        "modules": 1,
+        "color": "Alina Grey",
+        "colorCode": "#c9b48a",
+        "description": ""
+      },
+      {
+        "id": "yko5el",
+        "name": "Socket 6A",
+        "modules": 2,
+        "color": "Vensor White",
+        "colorCode": "#ffffff",
+        "description": ""
+      },
+      {
+        "id": "sckyip",
+        "name": "Switch 6A",
+        "modules": 1,
+        "color": "Vensor White",
+        "colorCode": "#ffffff",
+        "description": ""
+      },
+      {
+        "id": "zz4rod",
+        "name": "Blank",
+        "modules": 1,
+        "color": "Vensor White",
+        "colorCode": "#ffffff",
+        "description": ""
+      },
+      {
+        "id": "on9efr",
+        "name": "Indicator",
+        "modules": 1,
+        "color": "Vensor White",
+        "colorCode": "#ffffff",
+        "description": ""
+      }
+    ],
+    "electricals": [
+      {
+        "id": "1gnu1m",
+        "name": "Fan Plate",
+        "description": ""
+      },
+      {
+        "id": "yzivsa",
+        "name": "Cover Plate",
+        "description": ""
+      },
+      {
+        "id": "iv4n7r",
+        "name": "Ceiling Rose",
+        "description": ""
+      },
+      {
+        "id": "2hdo9y",
+        "name": "BLDC Fan",
+        "description": ""
+      },
+      {
+        "id": "43i1rs",
+        "name": "LED Bulb",
+        "description": ""
+      },
+      {
+        "id": "6l7450",
+        "name": "Baton Holder",
+        "description": ""
+      },
+      {
+        "id": "qkkwh7",
+        "name": "Angle Holder",
+        "description": ""
+      },
+      {
+        "id": "guxqts",
+        "name": "3Color Concealed LED 6W",
+        "description": "White, Warm and Cool White"
+      },
+      {
+        "id": "rt0ppo",
+        "name": "Warm White Concealed LED 6W",
+        "description": ""
+      },
+      {
+        "id": "jkoi3m",
+        "name": "Warm White Concealed LED 9W",
+        "description": "9 Watts of extra lighting power"
+      },
+      {
+        "id": "egrpfv",
+        "name": "9x7 Cover",
+        "description": ""
+      },
+      {
+        "id": "la1s4l",
+        "name": "4x4 Cover",
+        "description": ""
+      },
+      {
+        "id": "or254z",
+        "name": "16M DB",
+        "description": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,466 @@
+{
+  "name": "Havells Standard Schema",
+  "colors": {
+    "Alina White": "#f8f8f6",
+    "Alina Grey": "#c9b48a",
+    "Alina Black": "#252525",
+    "Vensor White": "#ffffff",
+    "Vensor Black": "#000000",
+    "AZIOT White": "#ffffff"
+  },
+  "plates": [
+    {
+      "id": "seed-plate-2",
+      "capacity": 2,
+      "rows": 1,
+      "description": "",
+      "colorName": "Alina White",
+      "colorCode": "#f8f8f6"
+    },
+    {
+      "id": "seed-plate-3",
+      "capacity": 3,
+      "rows": 1,
+      "description": "",
+      "colorName": "Alina White",
+      "colorCode": "#f8f8f6"
+    },
+    {
+      "id": "seed-plate-4",
+      "capacity": 4,
+      "rows": 1,
+      "description": "",
+      "colorName": "Alina White",
+      "colorCode": "#f8f8f6"
+    },
+    {
+      "id": "seed-plate-6",
+      "capacity": 6,
+      "rows": 1,
+      "description": "",
+      "colorName": "Alina White",
+      "colorCode": "#f8f8f6"
+    },
+    {
+      "id": "seed-plate-8",
+      "capacity": 8,
+      "rows": 1,
+      "description": "",
+      "colorName": "Alina White",
+      "colorCode": "#f8f8f6"
+    },
+    {
+      "id": "seed-plate-12",
+      "capacity": 12,
+      "rows": 2,
+      "description": "",
+      "colorName": "Alina White",
+      "colorCode": "#f8f8f6"
+    },
+    {
+      "id": "seed-plate-18",
+      "capacity": 18,
+      "rows": 3,
+      "description": "",
+      "colorName": "Alina Grey",
+      "colorCode": "#c9b48a"
+    },
+    {
+      "id": "7gos0c",
+      "capacity": 12,
+      "rows": 2,
+      "description": "",
+      "colorName": "Alina Black",
+      "colorCode": "#252525"
+    },
+    {
+      "id": "go78vn",
+      "capacity": 18,
+      "rows": 3,
+      "description": "",
+      "colorName": "Alina Black",
+      "colorCode": "#252525"
+    },
+    {
+      "id": "pohwx6",
+      "capacity": 6,
+      "rows": 1,
+      "description": "",
+      "colorName": "Alina Black",
+      "colorCode": "#252525"
+    },
+    {
+      "id": "7d5sba",
+      "capacity": 8,
+      "rows": 1,
+      "description": "",
+      "colorName": "Alina Black",
+      "colorCode": "#252525"
+    },
+    {
+      "id": "5k4ghg",
+      "capacity": 8,
+      "rows": 1,
+      "description": "",
+      "colorName": "Alina Grey",
+      "colorCode": "#c9b48a"
+    },
+    {
+      "id": "a1wvxb",
+      "capacity": 8,
+      "rows": 2,
+      "description": "",
+      "colorName": "Alina Black",
+      "colorCode": "#252525"
+    },
+    {
+      "id": "e6zglv",
+      "capacity": 8,
+      "rows": 2,
+      "description": "",
+      "colorName": "Alina Grey",
+      "colorCode": "#c9b48a"
+    },
+    {
+      "id": "e78ovz",
+      "capacity": 6,
+      "rows": 1,
+      "description": "",
+      "colorName": "Alina Grey",
+      "colorCode": "#c9b48a"
+    },
+    {
+      "id": "fd997n",
+      "capacity": 12,
+      "rows": 2,
+      "description": "",
+      "colorName": "Alina Grey",
+      "colorCode": "#c9b48a"
+    },
+    {
+      "id": "ynn49c",
+      "capacity": 2,
+      "rows": 1,
+      "description": "",
+      "colorName": "Alina Black",
+      "colorCode": "#252525"
+    },
+    {
+      "id": "cavz2x",
+      "capacity": 2,
+      "rows": 1,
+      "description": "",
+      "colorName": "Alina Grey",
+      "colorCode": "#c9b48a"
+    },
+    {
+      "id": "3drpzx",
+      "capacity": 12,
+      "rows": 2,
+      "description": "",
+      "colorName": "Vensor Black",
+      "colorCode": "#000000"
+    }
+  ],
+  "components": [
+    {
+      "id": "seed-switch",
+      "name": "Switch 6A",
+      "modules": 1,
+      "color": "Alina White",
+      "colorCode": "#f8f8f6",
+      "description": ""
+    },
+    {
+      "id": "seed-blank",
+      "name": "Blank",
+      "modules": 1,
+      "color": "Alina Black",
+      "colorCode": "#252525",
+      "description": ""
+    },
+    {
+      "id": "seed-socket",
+      "name": "Socket 6A",
+      "modules": 2,
+      "color": "Alina White",
+      "colorCode": "#f8f8f6",
+      "description": ""
+    },
+    {
+      "id": "rl3iqq",
+      "name": "Socket 6A",
+      "modules": 2,
+      "color": "Alina Black",
+      "colorCode": "#252525",
+      "description": ""
+    },
+    {
+      "id": "qlr6ua",
+      "name": "Switch 6A",
+      "modules": 1,
+      "color": "Alina Grey",
+      "colorCode": "#c9b48a",
+      "description": ""
+    },
+    {
+      "id": "fgb8bl",
+      "name": "Socket 6A",
+      "modules": 2,
+      "color": "Alina Grey",
+      "colorCode": "#c9b48a",
+      "description": ""
+    },
+    {
+      "id": "igqsac",
+      "name": "Socket 16A",
+      "modules": 2,
+      "color": "Alina Grey",
+      "colorCode": "#c9b48a",
+      "description": ""
+    },
+    {
+      "id": "dd7fqv",
+      "name": "Switch 16A",
+      "modules": 1,
+      "color": "Alina Grey",
+      "colorCode": "#c9b48a",
+      "description": ""
+    },
+    {
+      "id": "stlhqf",
+      "name": "Blank",
+      "modules": 1,
+      "color": "Alina White",
+      "colorCode": "#f8f8f6",
+      "description": ""
+    },
+    {
+      "id": "74pjea",
+      "name": "Switch 16A",
+      "modules": 1,
+      "color": "Alina White",
+      "colorCode": "#f8f8f6",
+      "description": ""
+    },
+    {
+      "id": "ndu4m0",
+      "name": "Socket 16A",
+      "modules": 2,
+      "color": "Alina White",
+      "colorCode": "#f8f8f6",
+      "description": ""
+    },
+    {
+      "id": "8ayxcj",
+      "name": "Blank",
+      "modules": 1,
+      "color": "Alina Grey",
+      "colorCode": "#c9b48a",
+      "description": ""
+    },
+    {
+      "id": "xjnjho",
+      "name": "Switch 6A",
+      "modules": 1,
+      "color": "Alina Black",
+      "colorCode": "#252525",
+      "description": ""
+    },
+    {
+      "id": "z6pgww",
+      "name": "Switch 16A",
+      "modules": 1,
+      "color": "Alina Black",
+      "colorCode": "#252525",
+      "description": ""
+    },
+    {
+      "id": "y0jqa0",
+      "name": "Socket 16A",
+      "modules": 2,
+      "color": "Alina Black",
+      "colorCode": "#252525",
+      "description": ""
+    },
+    {
+      "id": "k5dl4s",
+      "name": "4in1 Touch Switch",
+      "modules": 2,
+      "color": "AZIOT White",
+      "colorCode": "#ffffff",
+      "description": ""
+    },
+    {
+      "id": "4v76n7",
+      "name": "2way Switch 16A",
+      "modules": 1,
+      "color": "Alina Black",
+      "colorCode": "#252525",
+      "description": ""
+    },
+    {
+      "id": "41jg14",
+      "name": "MCB C25",
+      "modules": 1,
+      "color": "Alina Black",
+      "colorCode": "#252525",
+      "description": ""
+    },
+    {
+      "id": "c2ladt",
+      "name": "MCB C25",
+      "modules": 1,
+      "color": "Alina Grey",
+      "colorCode": "#c9b48a",
+      "description": ""
+    },
+    {
+      "id": "fagwaf",
+      "name": "Socket 25A HD",
+      "modules": 2,
+      "color": "Alina Black",
+      "colorCode": "#252525",
+      "description": ""
+    },
+    {
+      "id": "r317q0",
+      "name": "Socket 25A HD",
+      "modules": 2,
+      "color": "Alina Grey",
+      "colorCode": "#c9b48a",
+      "description": ""
+    },
+    {
+      "id": "kbi7u0",
+      "name": "Indicator",
+      "modules": 1,
+      "color": "Alina Black",
+      "colorCode": "#252525",
+      "description": ""
+    },
+    {
+      "id": "8o0xeu",
+      "name": "Indicator",
+      "modules": 1,
+      "color": "Alina Grey",
+      "colorCode": "#c9b48a",
+      "description": ""
+    },
+    {
+      "id": "u933lr",
+      "name": "Indicator",
+      "modules": 1,
+      "color": "Alina White",
+      "colorCode": "#f8f8f6",
+      "description": ""
+    },
+    {
+      "id": "s2isu3",
+      "name": "2way Switch 6A",
+      "modules": 1,
+      "color": "Alina Grey",
+      "colorCode": "#c9b48a",
+      "description": ""
+    },
+    {
+      "id": "yko5el",
+      "name": "Socket 6A",
+      "modules": 2,
+      "color": "Vensor White",
+      "colorCode": "#ffffff",
+      "description": ""
+    },
+    {
+      "id": "sckyip",
+      "name": "Switch 6A",
+      "modules": 1,
+      "color": "Vensor White",
+      "colorCode": "#ffffff",
+      "description": ""
+    },
+    {
+      "id": "zz4rod",
+      "name": "Blank",
+      "modules": 1,
+      "color": "Vensor White",
+      "colorCode": "#ffffff",
+      "description": ""
+    },
+    {
+      "id": "on9efr",
+      "name": "Indicator",
+      "modules": 1,
+      "color": "Vensor White",
+      "colorCode": "#ffffff",
+      "description": ""
+    }
+  ],
+  "electricals": [
+    {
+      "id": "1gnu1m",
+      "name": "Fan Plate",
+      "description": ""
+    },
+    {
+      "id": "yzivsa",
+      "name": "Cover Plate",
+      "description": ""
+    },
+    {
+      "id": "iv4n7r",
+      "name": "Ceiling Rose",
+      "description": ""
+    },
+    {
+      "id": "2hdo9y",
+      "name": "BLDC Fan",
+      "description": ""
+    },
+    {
+      "id": "43i1rs",
+      "name": "LED Bulb",
+      "description": ""
+    },
+    {
+      "id": "6l7450",
+      "name": "Baton Holder",
+      "description": ""
+    },
+    {
+      "id": "qkkwh7",
+      "name": "Angle Holder",
+      "description": ""
+    },
+    {
+      "id": "guxqts",
+      "name": "3Color Concealed LED 6W",
+      "description": "White, Warm and Cool White"
+    },
+    {
+      "id": "rt0ppo",
+      "name": "Warm White Concealed LED 6W",
+      "description": ""
+    },
+    {
+      "id": "jkoi3m",
+      "name": "Warm White Concealed LED 9W",
+      "description": "9 Watts of extra lighting power"
+    },
+    {
+      "id": "egrpfv",
+      "name": "9x7 Cover",
+      "description": ""
+    },
+    {
+      "id": "la1s4l",
+      "name": "4x4 Cover",
+      "description": ""
+    },
+    {
+      "id": "or254z",
+      "name": "16M DB",
+      "description": ""
+    }
+  ]
+}

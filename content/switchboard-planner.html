@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Switchboard Planner</title>
+<style>
+:root{--bg:#f6f5f2;--card:#fff;--tx:#1f2328;--mu:#6b7280;--bd:#d9d6cf;--ac:#2f5d8a;--on:#fff;--em:#ecebe6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root{--bg:#17181a;--card:#222427;--tx:#e8e8e6;--mu:#9aa0a6;--bd:#3a3d41;--ac:#7fb0e0;--on:#101214;--em:#2c2f33}}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--tx);font:15px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}
+#app{max-width:720px;margin:0 auto;padding:16px}
+h1{font-size:20px;margin:0 0 4px}h2{font-size:16px;margin:20px 0 8px}
+.version{font-size:12px;font-weight:400;color:var(--ac);text-decoration:underline;margin-left:8px;vertical-align:middle}
+.home-tabs{display:flex;gap:6px;border-bottom:1px solid var(--bd);margin:14px 0;overflow-x:auto}.tab{font:inherit;background:transparent;color:var(--mu);border:0;border-bottom:3px solid transparent;padding:10px 14px;cursor:pointer;white-space:nowrap}.tab.active{color:var(--tx);border-bottom-color:var(--ac);font-weight:700}
+.mu{color:var(--mu);font-size:13px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px;margin-bottom:10px}
+.btn{font:inherit;border:1px solid var(--bd);background:var(--em);color:var(--tx);border-radius:10px;padding:10px 14px;cursor:pointer}
+.btn.p{background:var(--ac);color:var(--on);border-color:var(--ac)}
+.btn.danger{background:#c0392b;color:#fff;border-color:#a5301f}
+.btn.sm{padding:6px 10px;font-size:13px}
+.btn:disabled{opacity:.4;cursor:default}.fold{border:0;background:transparent;color:var(--tx);font:20px/1 system-ui;cursor:pointer;padding:4px 6px}
+.menu{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.menu .btn{padding:14px 6px;font-weight:600}
+@media(max-width:520px){.menu{grid-template-columns:repeat(2,1fr)}}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.sp{justify-content:space-between}
+input,select{font:inherit;color:var(--tx);background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:9px;width:100%}
+textarea{font:12px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--tx);background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:9px;width:100%;min-height:180px;resize:vertical}
+textarea[data-description]{font:15px/1.4 system-ui,sans-serif;min-height:70px}
+label{display:block;margin:10px 0;font-size:13px;color:var(--mu)}label input,label select{margin-top:4px;color:var(--tx);font-size:15px}
+table{width:100%;border-collapse:collapse}td,th{padding:6px 4px;border-bottom:1px solid var(--bd);text-align:left}td:last-child,th:last-child{text-align:right}
+.plate{display:grid;gap:3px;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,.25);margin:8px 0}
+.cell{border-radius:5px;font-size:10px;line-height:1.1;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;word-break:break-word;padding:2px}
+.it{border:1px solid;font-weight:600}
+.em{border:1px dashed}
+[data-a]{cursor:pointer}
+.chips{display:flex;gap:6px;flex-wrap:wrap}.chip.on{background:var(--ac);color:var(--on)}
+.msg{color:#b3261e;font-size:13px;margin:6px 0}
+.pl{border-top:1px solid var(--bd);padding-top:6px;margin-top:6px}
+.hint{background:var(--em);border-radius:8px;padding:8px 10px;font-size:12px;color:var(--mu);margin-bottom:10px}
+.totals{margin:14px 0 10px;padding:0}.totals summary{cursor:pointer;padding:12px;font-weight:700;list-style-position:inside}.totals[open] summary{border-bottom:1px solid var(--bd)}.totals-body{padding:8px 12px 12px}
+.color-total{padding-top:12px;text-align:left}.swatch{display:inline-block;width:14px;height:14px;border:1px solid var(--bd);border-radius:3px;vertical-align:middle;margin-right:7px}
+/* Interaction feedback across mouse, touch, and keyboard. */
+:where(.btn,.tab,.fold,.version,.totals summary,.cell[data-a],input,select,textarea){transition:background-color .15s ease,border-color .15s ease,box-shadow .15s ease,filter .15s ease,transform .15s ease}
+@media(hover:hover){
+  .btn:not(:disabled):hover{filter:brightness(1.09);border-color:var(--ac);box-shadow:0 2px 8px rgba(0,0,0,.16)}
+  .tab:hover,.fold:hover,.totals summary:hover{background:var(--em);color:var(--tx)}
+  .version:hover{filter:brightness(1.2);text-decoration-thickness:2px}
+  :where(input,select,textarea):not(:disabled):hover{border-color:var(--ac)}
+  .cell[data-a]:hover{outline:2px solid var(--ac);outline-offset:-2px;filter:brightness(1.1);transform:scale(1.02);z-index:1}
+}
+:where(.btn,.tab,.fold,.version,.totals summary,.cell[data-a]):active{transform:translateY(1px) scale(.98);filter:brightness(.9)}
+:where(.btn,.tab,.fold,.version,.totals summary,.cell[data-a],input,select,textarea):focus-visible{outline:2px solid var(--ac);outline-offset:2px;box-shadow:0 0 0 4px var(--bg)}
+:where(input,select,textarea):focus{border-color:var(--ac)}
+@media(prefers-reduced-motion:reduce){:where(.btn,.tab,.fold,.version,.totals summary,.cell[data-a],input,select,textarea){transition:none}}
+</style></head>
+<body><div id="app"></div>
+<input type="file" id="fi" accept=".json,application/json" hidden>
+<input type="file" id="fiSchema" accept=".json,application/json" hidden>
+<script>
+/* ---- Schema: individual plate types and modules available for projects. ---- */
+const uid=()=>Math.random().toString(36).slice(2,8);
+const seedSchema=()=>({name:'My Schema',colors:{},plates:[],components:[],electricals:[]});
+/* ---- Project: rooms and placed copies of plate and module types. ---- */
+const seedProject=()=>({name:'My Project',author:'',description:'',rooms:{},roomOrder:[],roomElectricals:{}});
+const record=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
+const unique=a=>new Set(a).size===a.length;
+const validSchema=j=>{if(!record(j)||typeof j.name!=='string'||!record(j.colors)||!Array.isArray(j.plates)||!Array.isArray(j.components))return false;
+const colorNames=Object.keys(j.colors);if(!colorNames.every(n=>n&&/^#[0-9a-f]{6}$/i.test(j.colors[n])))return false;
+const platesOK=j.plates.every(t=>record(t)&&typeof t.id==='string'&&t.id&&Number.isInteger(t.capacity)&&t.capacity>=1&&t.capacity<=24&&Number.isInteger(t.rows)&&t.rows>=1&&t.capacity%t.rows===0&&typeof t.description==='string'&&Object.hasOwn(j.colors,t.colorName)&&t.colorCode===j.colors[t.colorName]);
+const modulesOK=j.components.every(c=>record(c)&&typeof c.id==='string'&&c.id&&typeof c.name==='string'&&c.name&&[1,2].includes(c.modules)&&typeof c.description==='string'&&Object.hasOwn(j.colors,c.color)&&c.colorCode===j.colors[c.color]);
+const electricalsOK=j.electricals===undefined||Array.isArray(j.electricals)&&j.electricals.every(x=>record(x)&&typeof x.id==='string'&&x.id&&typeof x.name==='string'&&x.name&&typeof x.description==='string')&&unique(j.electricals.map(x=>x.id))&&unique(j.electricals.map(x=>x.name.toLowerCase()));
+return platesOK&&modulesOK&&electricalsOK&&unique(j.plates.map(t=>t.id))&&unique(j.components.map(c=>c.id))&&unique(j.plates.map(t=>`${t.capacity}|${t.rows}|${t.colorName}`))&&unique(j.components.map(c=>`${c.name.toLowerCase()}|${c.modules}|${c.color}`))};
+const validProject=j=>{if(!record(j)||typeof j.name!=='string'||!record(j.rooms))return false;const ids=[];
+if(j.roomElectricals!==undefined&&(!record(j.roomElectricals)||!Object.entries(j.roomElectricals).every(([room,items])=>Object.hasOwn(j.rooms,room)&&Array.isArray(items)&&items.every(x=>record(x)&&typeof x.id==='string'&&typeof x.electricalId==='string'&&typeof x.name==='string'&&typeof x.description==='string'))))return false;
+for(const [room,plates] of Object.entries(j.rooms)){if(!room||!Array.isArray(plates))return false;for(const p of plates){if(!record(p)||typeof p.id!=='string'||!p.id||typeof p.plateTypeId!=='string'||typeof p.plateTypeLabel!=='string'||typeof p.name!=='string'||!Number.isInteger(p.capacity)||p.capacity<1||!Number.isInteger(p.rows)||p.rows<1||p.capacity%p.rows!==0||typeof p.color!=='string'||!/^#[0-9a-f]{6}$/i.test(p.colorCode)||typeof p.description!=='string'||!Array.isArray(p.items))return false;ids.push(p.id);const occupied=new Set,width=p.capacity/p.rows;
+for(const item of p.items){if(!record(item)||typeof item.moduleId!=='string'||typeof item.moduleLabel!=='string'||typeof item.component!=='string'||![1,2].includes(item.modules)||typeof item.color!=='string'||!/^#[0-9a-f]{6}$/i.test(item.colorCode)||!Number.isInteger(item.at)||item.at<0||item.at+item.modules>p.capacity||item.at%width+item.modules>width)return false;for(let k=item.at;k<item.at+item.modules;k++){if(occupied.has(k))return false;occupied.add(k)}}}}return unique(ids)};
+
+const schemaKey='switchboard-schema-final',projectKey='switchboard-project-final';
+let SC,P;
+try{SC=JSON.parse(localStorage.getItem(schemaKey))}catch(x){}
+try{P=JSON.parse(localStorage.getItem(projectKey))}catch(x){}
+if(!validSchema(SC))SC=seedSchema();
+if(!validProject(P))P=seedProject();
+SC.electricals??=[];
+P.roomElectricals??={};
+P.author=typeof P.author==='string'?P.author:'';
+P.description=typeof P.description==='string'?P.description:'';
+let iconActions=false;try{iconActions=localStorage.getItem('switchboard-icon-actions')==='true'}catch(x){}
+let V={v:'home',homeTab:'overview',iconActions,collapsedRooms:{},collapsedElectricalRooms:{}};
+const $=s=>document.querySelector(s);
+const formError=(form,message)=>{if(!form)return;const previous=form.previousElementSibling;if(previous?.classList.contains('form-error'))previous.remove();const notice=document.createElement('div');notice.className='msg form-error';notice.setAttribute('role','alert');notice.textContent=message;form.before(notice)};
+const e=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const saveSchema=()=>{try{localStorage.setItem(schemaKey,JSON.stringify(SC))}catch(x){}};
+const saveProject=()=>{try{localStorage.setItem(projectKey,JSON.stringify(P))}catch(x){}};
+const roomNames=()=>{const keys=Object.keys(P.rooms),order=Array.isArray(P.roomOrder)?P.roomOrder:[];return [...new Set(order.filter(n=>Object.hasOwn(P.rooms,n)))].concat(keys.filter(n=>!order.includes(n)))};
+P.roomOrder=roomNames();
+const plateTypeLabel=p=>`${p.capacity}M · ${p.rows} row${p.rows===1?'':'s'} · ${p.colorName}${p.description?' · '+p.description:''}`;
+const moduleLabel=m=>`${m.name} (${m.modules}M · ${m.color})`;
+const plateCountKey=p=>JSON.stringify([p.capacity,p.rows,p.color,p.colorCode,p.description]);
+const moduleCountKey=i=>JSON.stringify([i.component,i.modules,i.color,i.colorCode]);
+const cols=p=>p.capacity/p.rows;
+const plates=r=>P.rooms[r]||[];
+const projectDiagnostics=(project=P,schema=SC)=>{const issues=[],add=(kind,path,message)=>issues.push({kind,path,message});
+if(!validSchema(schema))add('JSON error','schema','Schema fields, colours, entries or uniqueness rules are invalid.');
+if(!validProject(project))add('JSON error','project','Project fields, plate layout or module placements are invalid.');
+if(!record(project)||!record(schema))return issues;
+const rooms=record(project.rooms)?project.rooms:{},types=Array.isArray(schema.plates)?schema.plates:[],modules=Array.isArray(schema.components)?schema.components:[],electricals=Array.isArray(schema.electricals)?schema.electricals:[];
+if(Array.isArray(project.roomOrder))project.roomOrder.forEach((r,i)=>{if(!Object.hasOwn(rooms,r))add('Orphan','project.roomOrder['+i+']',`Room “${r}” no longer exists.`)});
+for(const [room,placed] of Object.entries(rooms)){if(!Array.isArray(placed))continue;placed.forEach((plate,i)=>{if(!record(plate))return;const path=`project.rooms[${JSON.stringify(room)}][${i}]`;
+if(!types.some(t=>record(t)&&t.id===plate.plateTypeId))add('Orphan',path+'.plateTypeId',`Plate “${plate.name||i+1}” refers to a missing plate type (${plate.plateTypeId||'empty ID'}).`);
+if(!Array.isArray(plate.items))return;plate.items.forEach((item,j)=>{if(record(item)&&!modules.some(m=>record(m)&&m.id===item.moduleId))add('Orphan',`${path}.items[${j}].moduleId`,`Module “${item.component||j+1}” refers to a missing module type (${item.moduleId||'empty ID'}).`)})})}
+if(record(project.roomElectricals))for(const [room,items] of Object.entries(project.roomElectricals)){if(!Object.hasOwn(rooms,room))add('Orphan',`project.roomElectricals[${JSON.stringify(room)}]`,`Electrical items belong to a missing room “${room}”.`);if(!Array.isArray(items))continue;items.forEach((item,i)=>{if(record(item)&&!electricals.some(x=>record(x)&&x.id===item.electricalId))add('Orphan',`project.roomElectricals[${JSON.stringify(room)}][${i}].electricalId`,`Electrical item “${item.name||i+1}” refers to a missing catalogue item (${item.electricalId||'empty ID'}).`)})}
+return issues};
+const addCount=(totals,id,label,color,colorCode)=>{const entry=totals[id]||(totals[id]={label,qty:0,color,colorCode});entry.qty++};
+const rc=r=>{const m=Object.create(null);plates(r).forEach(p=>p.items.forEach(i=>addCount(m,moduleCountKey(i),i.moduleLabel)));return Object.keys(m).length?`<div class="mu" style="margin:6px 0">Room totals: ${Object.values(m).sort((a,b)=>a.label.localeCompare(b.label)).map(x=>`${e(x.label)} <span style="border-bottom:2px solid var(--ac);font-weight:700;color:var(--tx)">×${x.qty}</span>`).join(' · ')}</div>`:''};
+const cur=()=>plates(V.room).find(p=>p.id===V.pid);
+const occ=p=>{const o=Array(p.capacity).fill(-1);p.items.forEach((it,i)=>{for(let j=0;j<it.modules;j++)o[it.at+j]=i});return o};
+function counts(){const m=Object.create(null),plateCounts=Object.create(null);let n=0,mods=0,used=0;for(const r in P.rooms)for(const p of P.rooms[r]){n++;addCount(plateCounts,plateCountKey(p),p.plateTypeLabel,p.color,p.colorCode);mods+=p.capacity;p.items.forEach(i=>{addCount(m,moduleCountKey(i),i.moduleLabel,i.color,i.colorCode);used+=i.modules})}return{m,n,mods,used,plateCounts}}
+const colorTotalRows=totals=>{const groups=Object.create(null);Object.values(totals).forEach(x=>(groups[x.color||'Unspecified']??=[]).push(x));return Object.keys(groups).sort((a,b)=>a.localeCompare(b)).map(color=>`<tr><th colspan="2" class="color-total"><span class="swatch" style="background:${e(groups[color][0].colorCode||SC.colors[color]||'#eee')}"></span>${e(color)}</th></tr>${groups[color].sort((a,b)=>a.label.localeCompare(b.label)).map(x=>`<tr><td>${e(x.label)}</td><td><b>${x.qty}</b></td></tr>`).join('')}`).join('')};
+function plate(p,ed){const c=cols(p),col=p.colorCode,o=occ(p),w=ed?54:34;let h='';
+p.items.forEach((it,i)=>{const ihex=it.colorCode;h+=`<div class="cell it" title="${e(it.component)}" ${ed?`data-a="rm" data-i="${i}" role="button" tabindex="0" aria-label="Remove ${e(it.component)}"`:''} style="grid-row:${Math.floor(it.at/c)+1};grid-column:${it.at%c+1}/span ${it.modules};background:${ihex};border-color:rgba(0,0,0,.35);color:#000;text-shadow:0 0 2px #fff,0 0 2px #fff,0 0 4px #fff">${e(it.component)}</div>`});
+for(let k=0;k<p.capacity;k++)if(o[k]<0)h+=`<div class="cell em" ${ed?`data-a="put" data-k="${k}" role="button" tabindex="0" aria-label="Place module at position ${k+1}"`:''} style="grid-row:${Math.floor(k/c)+1};grid-column:${k%c+1};opacity:1;border-color:rgba(0,0,0,.6);box-shadow:0 0 0 1px rgba(255,255,255,.85);color:#000;text-shadow:0 0 2px #fff,0 0 2px #fff">${ed?'+':''}</div>`;
+return `<div class="plate" style="background:${col};width:min(100%,${c*w+16}px);grid-template-columns:repeat(${c},1fr);grid-auto-rows:${ed?56:36}px">${h}</div>`}
+const catalogSort=(kind,value)=>`<label style="margin:0">Sort <select data-sort="${kind}" aria-label="Sort ${kind}" style="width:auto;margin-left:5px">${(kind==='plates'?[['size-asc','Size: small first'],['size-desc','Size: large first']]:[['name-asc','Name A–Z'],['name-desc','Name Z–A']]).map(([key,label])=>`<option value="${key}" ${value===key?'selected':''}>${label}</option>`).join('')}</select></label>`;
+const catalogCompare=(mode,label,size)=>(a,b)=>{const names=label(a).localeCompare(label(b),undefined,{numeric:true}),sizes=size(a)-size(b);return mode==='name-desc'?-names:mode==='size-desc'?-sizes||names:sizes||names};
+const catalogGroups=(items,colorOf,row,compare)=>{if(!items.length)return '<div class="card mu">No items yet.</div>';const grouped=Object.create(null);items.forEach(item=>{const color=colorOf(item)||'Unspecified';(grouped[color]=grouped[color]||[]).push(item)});const order=Object.keys(SC.colors).filter(n=>grouped[n]).concat(Object.keys(grouped).filter(n=>!Object.hasOwn(SC.colors,n)));return `<div class="card">${order.map((name,i)=>`${i?'<hr style="border:none;border-top:1px solid var(--bd);margin:14px 0">':''}<div class="row" style="margin:3px 0 8px;font-weight:700"><span style="width:16px;height:16px;border-radius:4px;border:1px solid var(--bd);background:${e(SC.colors[name]||'#eee')}"></span>${e(name)}</div>${grouped[name].sort(compare).map(row).join('')}`).join('')}</div>`};
+const roomPlateForm=r=>`<form data-f="plate" class="card" style="margin-top:10px"><input type="hidden" name="r" value="${e(r)}"><b>Add plate to ${e(r)}</b>${SC.plates.length?`<label>Plate type<select name="type">${SC.plates.map(t=>`<option value="${e(t.id)}">${e(plateTypeLabel(t))}</option>`).join('')}</select></label><label>Plate name<input name="n" required value="Board ${counts().n+1}"></label><div class="row"><button class="btn p">Create &amp; fill plate</button><button type="button" class="btn" data-a="cancelAddPlate">Cancel</button></div>`:`<p>Add a plate type in + Plate first.</p><button type="button" class="btn" data-a="go" data-v="plate">+ Plate</button>`}</form>`;
+const offerJSON=(data,name)=>{if(V.exportUrl)URL.revokeObjectURL(V.exportUrl);V.exportText=JSON.stringify(data,null,2);V.exportName=(name||'export').replace(/[^\w-]+/g,'_')+'.json';V.exportUrl=URL.createObjectURL(new Blob([V.exportText],{type:'application/json'}));const a=document.createElement('a');a.href=V.exportUrl;a.download=V.exportName;document.body.appendChild(a);a.click();a.remove();render()};
+const resetView=()=>{if(V.exportUrl)URL.revokeObjectURL(V.exportUrl);V={v:'home',homeTab:'overview',iconActions:V.iconActions,collapsedRooms:{},collapsedElectricalRooms:{}}};
+const reportRows=(totals,heading,empty)=>{const rows=Object.values(totals).sort((a,b)=>a.label.localeCompare(b.label));return `<div><h3>${heading}</h3>${rows.length?`<table><thead><tr><th>Item</th><th>Qty</th></tr></thead><tbody>${rows.map(x=>`<tr><td>${e(x.label)}</td><td>${x.qty}</td></tr>`).join('')}</tbody></table>`:`<p class="muted">${empty}</p>`}</div>`};
+const exportReport=()=>{const totals=counts();
+const rooms=roomNames().map(name=>{const placed=P.rooms[name],capacity=placed.reduce((n,p)=>n+p.capacity,0),used=placed.reduce((n,p)=>n+p.items.reduce((m,i)=>m+i.modules,0),0),electricals=P.roomElectricals[name]||[],electricalCounts=Object.create(null);
+electricals.forEach(x=>{const entry=electricalCounts[x.electricalId]??={name:x.name,qty:0};entry.qty++});
+return `<section class="room"><h2>${e(name)}</h2><p>${placed.length} plate(s) · ${used}/${capacity} module spaces used</p>${rc(name)||'<p class="muted">No modules placed.</p>'}${electricals.length?`<p><b>Electricals:</b> ${Object.values(electricalCounts).sort((a,b)=>a.name.localeCompare(b.name)).map(x=>`${e(x.name)} ×${x.qty}`).join(' · ')}</p>`:''}<h3>Filled plates</h3>${placed.length?placed.map(p=>`<article class="placed"><h4>${e(p.name)}</h4><p>${e(p.plateTypeLabel)} · ${p.items.reduce((n,i)=>n+i.modules,0)}/${p.capacity} spaces used</p>${plate(p,false)}</article>`).join(''):'<p class="muted">No plates in this room.</p>'}</section>`}).join('');
+const html=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${e(P.name)} — Project report</title><style>@page{size:A4;margin:14mm}*{box-sizing:border-box}body{font:13px/1.4 system-ui,Arial,sans-serif;color:#222;margin:24px;print-color-adjust:exact;-webkit-print-color-adjust:exact}h1{font-size:24px;margin:0}h2{font-size:19px;border-bottom:2px solid #444;padding-bottom:4px}h3{font-size:15px;margin:14px 0 5px}h4{font-size:14px;margin:0}.muted{color:#666}.description{white-space:pre-wrap}.tables{display:block}.tables>div{width:fit-content;max-width:100%;margin-bottom:18px}.mu{color:#555}:root{--ac:#2f5d8a;--tx:#222}table{width:auto;max-width:100%;border-collapse:collapse;margin-bottom:12px}th,td{border-bottom:1px solid #ccc;padding:4px;text-align:left;overflow-wrap:anywhere}td:last-child,th:last-child{text-align:right}.room{break-before:page}.placed{break-inside:avoid;margin:14px 0 20px}.placed p{margin:3px 0}.plate{display:grid;gap:3px;padding:8px;border:1px solid #666;border-radius:8px;margin:8px 0}.cell{border-radius:5px;font-size:10px;line-height:1.1;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;word-break:break-word;padding:2px}.it{border:1px solid;font-weight:600}.em{border:1px dashed}.toolbar{margin-bottom:20px}@media print{body{margin:0}.toolbar{display:none}}</style></head><body><div class="toolbar"><button onclick="window.print()">Print or save as PDF</button></div><h1>${e(P.name)}</h1>${P.author?`<p><b>Author:</b> ${e(P.author)}</p>`:''}${P.description?`<p class="description">${e(P.description)}</p>`:''}<p><b>Overview:</b> ${Object.keys(P.rooms).length} room(s) · ${totals.n} plate(s) · ${totals.used}/${totals.mods} module spaces used</p><h2>Project totals</h2><div class="tables">${reportRows(totals.plateCounts,'Plate totals','No plates added.')}${reportRows(totals.m,'Module totals','No modules placed.')}</div>${rooms||'<p class="muted">No rooms yet.</p>'}</body></html>`;
+const w=window.open('','_blank');if(!w)throw Error('Report window blocked');w.document.open();w.document.write(html);w.document.close();w.focus();w.setTimeout(()=>w.print(),300)};
+const actionLabel=(label,icon)=>V.iconActions?`aria-label="${e(label)}" title="${e(label)}"><span aria-hidden="true">${icon}</span>`:`>${e(label)}`;
+const backButton=()=>`<button type="button" class="btn" data-a="go" data-v="home">Back</button>`;
+const roomPlateCard=(p,r,i,total)=>{return `<div class="pl"><div class="row sp"><span>${e(p.name)} <span class="mu">· ${e(p.plateTypeLabel)}</span></span><span class="row" style="gap:6px"><button class="btn sm" data-a="movePlate" data-r="${e(r)}" data-p="${e(p.id)}" data-dir="-1" aria-label="Move plate ${e(p.name)} up" title="Move up" ${i===0?'disabled':''}>↑</button><button class="btn sm" data-a="movePlate" data-r="${e(r)}" data-p="${e(p.id)}" data-dir="1" aria-label="Move plate ${e(p.name)} down" title="Move down" ${i===total-1?'disabled':''}>↓</button>${V.delPlate===p.id?`<button class="btn sm danger" data-a="delplate2h" data-r="${e(r)}" data-p="${e(p.id)}">Confirm delete</button><button class="btn sm" data-a="canceldelh">Cancel</button>`:`<button class="btn sm" data-a="edit" data-r="${e(r)}" data-p="${e(p.id)}" ${actionLabel('Edit plate','✎')}</button><button class="btn sm" data-a="dupplate" data-r="${e(r)}" data-p="${e(p.id)}">Duplicate</button><button class="btn sm danger" data-a="delplateh" data-p="${e(p.id)}" ${actionLabel('Delete plate','🗑')}</button>`}</span></div>${plate(p,false)}</div>`};
+const roomCard=(r,i,total)=>{const closed=!!V.collapsedRooms[r],ps=plates(r);return `<div class="card"><div class="row sp"><span class="row"><button class="fold" data-a="toggleRoom" data-r="${e(r)}" aria-expanded="${!closed}" aria-label="${closed?'Expand':'Collapse'} room ${e(r)}">${closed?'▸':'▾'}</button>${V.renameRoom===r?`<form data-f="renroom" class="row" style="flex:1;gap:6px"><input type="hidden" name="old" value="${e(r)}"><input name="n" value="${e(r)}" required autofocus style="flex:1"><button class="btn sm p">Save</button><button type="button" class="btn sm" data-a="cancelren">Cancel</button></form>`:`<b>${e(r)}</b>`}</span><span class="row" style="gap:8px"><span class="mu">${ps.length} plate(s)</span><button class="btn sm p" data-a="addPlateRoom" data-r="${e(r)}">+ Plate</button><button class="btn sm" data-a="moveRoom" data-r="${e(r)}" data-dir="-1" aria-label="Move room ${e(r)} up" title="Move up" ${i===0?'disabled':''}>↑</button><button class="btn sm" data-a="moveRoom" data-r="${e(r)}" data-dir="1" aria-label="Move room ${e(r)} down" title="Move down" ${i===total-1?'disabled':''}>↓</button><button class="btn sm" data-a="renroom" data-r="${e(r)}" ${actionLabel('Rename room','✎')}</button><button class="btn sm" data-a="duproom" data-r="${e(r)}">Duplicate</button><button class="btn sm danger" data-a="delroomh" data-r="${e(r)}" ${actionLabel('Delete room','🗑')}</button></span></div>${closed?'':`${V.addPlateRoom===r?roomPlateForm(r):''}${V.delRoom===r?`<div class="hint" role="group" aria-label="Confirm room deletion"><div>Delete <b>${e(r)}</b> and its ${ps.length} plate(s)? This removes everything in the room.</div><div class="row" style="margin-top:8px"><button class="btn sm danger" data-a="delroom" data-r="${e(r)}">Confirm delete</button><button class="btn sm" data-a="canceldelroom">Cancel</button></div></div>`:''}${rc(r)}${ps.map((p,j)=>roomPlateCard(p,r,j,ps.length)).join('')}${ps.length?'':'<div class="mu">Empty room</div>'}`}</div>`};
+const electricalRoomCard=r=>{const closed=!!V.collapsedElectricalRooms[r],items=P.roomElectricals[r]||[],groups=Object.create(null);items.forEach(x=>{const key=x.electricalId;(groups[key]??={name:x.name,description:x.description,qty:0}).qty++});
+return `<div class="card"><div class="row sp"><span class="row"><button class="fold" data-a="toggleElectricalRoom" data-r="${e(r)}" aria-expanded="${!closed}" aria-label="${closed?'Expand':'Collapse'} electricals for ${e(r)}">${closed?'▸':'▾'}</button><b>${e(r)}</b></span><span class="mu">${items.length} electrical item(s)</span></div>${closed?'':`${SC.electricals.length?`<form data-f="addElectrical" class="row"><input type="hidden" name="r" value="${e(r)}"><label style="flex:1;min-width:150px">Electrical item<select name="type">${SC.electricals.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(x=>`<option value="${e(x.id)}">${e(x.name)}</option>`).join('')}</select></label><label style="width:85px">Qty<input name="qty" type="number" min="1" max="99" value="1" required></label><button class="btn sm p" type="button" data-a="placeElectrical">Add to room</button></form>`:'<p class="mu">Add an item in + Electricals first.</p>'}${Object.keys(groups).length?`<div style="margin-top:8px">${Object.entries(groups).sort((a,b)=>a[1].name.localeCompare(b[1].name)).map(([id,x])=>`<div class="row sp" style="padding:5px 0;border-top:1px solid var(--bd)"><span><b>${e(x.name)}</b> <span class="mu">${x.description?'— '+e(x.description):''} · ×${x.qty}</span></span><button class="btn sm" data-a="removeElectrical" data-r="${e(r)}" data-id="${e(id)}" aria-label="Remove one ${e(x.name)} from ${e(r)}">Remove one</button></div>`).join('')}</div>`:'<p class="mu">No electrical items added yet.</p>'}`}</div>`};
+function render(){const A=$('#app'),msg=V.msg?`<div class="msg">${e(V.msg)}</div>`:'';V.msg='';let h='';
+if(V.v==='home'){const t=counts(),rooms=roomNames();
+const overview=`<label>Project name<input data-n value="${e(P.name)}"></label><label>Author<input data-author value="${e(P.author)}" placeholder="Author name"></label><label>Description<textarea data-description placeholder="Describe this project">${e(P.description)}</textarea></label>
+<div class="row" style="margin-top:8px"><button class="btn sm" data-a="open">Import project (.json)</button><button class="btn sm" data-a="export">Download project (.json)</button><button class="btn sm" data-a="exportPdf">Export PDF</button><button class="btn sm danger" data-a="askClearProject">Clear project</button></div>
+${V.clearProject?`<div class="hint" role="group" aria-label="Confirm clear project"><div>Clear all rooms, placed plates, modules and electrical items, and the active schema?</div><div class="row" style="margin-top:8px"><button class="btn sm danger" data-a="confirmClearProject">Confirm clear</button><button class="btn sm" data-a="cancelClearProject">Cancel</button></div></div>`:''}
+<div class="mu" style="margin-top:10px">${SC.components.length} modules · ${SC.plates.length} plate types · ${Object.keys(SC.colors).length} colours · ${SC.electricals.length} electrical items</div>
+<label>Schema name<input data-sn value="${e(SC.name)}"></label>
+<div class="row"><button class="btn sm" data-a="openSchema">Open schema (.json)</button><button class="btn sm" data-a="exportSchema">Download schema (.json)</button></div>
+${V.exportText?`<div class="card" role="region" aria-label="JSON export"><b>${e(V.exportName)}</b><p class="mu">If a download did not start, use the link below. In a restricted preview, copy the JSON and save it as this filename, or open the HTML file in a regular browser tab.</p><div class="row"><a class="btn sm" href="${e(V.exportUrl)}" download="${e(V.exportName)}">Download JSON</a><button class="btn sm" data-a="copyExport">Copy JSON</button><button class="btn sm" data-a="closeExport">Close</button></div><textarea id="exportText" readonly aria-label="Export JSON">${e(V.exportText)}</textarea></div>`:''}
+<div class="menu"><button class="btn p" data-a="go" data-v="plate">+ Plate</button><button class="btn p" data-a="go" data-v="comp">+ Module</button><button class="btn p" data-a="go" data-v="colour">+ Colour</button><button class="btn p" data-a="go" data-v="electricals">+ Electricals</button></div>
+<div class="card"><b>${rooms.length}</b> rooms · <b>${t.n}</b> plates · <b>${t.used}/${t.mods}</b> modules used</div>
+<details class="card totals"><summary>Plate totals</summary><div class="totals-body">${t.n?`<table><tr><th>Plate type</th><th>Qty</th></tr>${colorTotalRows(t.plateCounts)}<tr><th>Total</th><th>${t.n}</th></tr></table>`:'<span class="mu">No plates added yet.</span>'}</div></details>
+<details class="card totals"><summary>Module totals</summary><div class="totals-body">${Object.keys(t.m).length?`<table><tr><th>Module</th><th>Qty</th></tr>${colorTotalRows(t.m)}</table>`:'<span class="mu">No modules placed yet.</span>'}</div></details>
+`;
+const roomPane=`<div class="row sp"><h2>Rooms</h2><span class="row"><button class="btn sm" data-a="askRoomVisibility" data-mode="collapse" ${rooms.length?'':'disabled'}>Collapse all</button><button class="btn sm" data-a="askRoomVisibility" data-mode="expand" ${rooms.length?'':'disabled'}>Expand all</button><button class="btn sm p" data-a="go" data-v="room">+ New Room</button></span></div>${V.pendingRoomVisibility?`<div class="hint" role="group" aria-label="Confirm room visibility change"><div>${V.pendingRoomVisibility==='collapse'?'Collapse':'Expand'} all ${rooms.length} room(s)?</div><div class="row" style="margin-top:8px"><button class="btn sm p" data-a="confirmRoomVisibility">Confirm ${V.pendingRoomVisibility}</button><button class="btn sm" data-a="cancelRoomVisibility">Cancel</button></div></div>`:''}${rooms.map((r,i)=>roomCard(r,i,rooms.length)).join('')||'<span class="mu">Add a room to begin.</span>'}`;
+const electricalTotals=Object.create(null);rooms.forEach(r=>(P.roomElectricals[r]||[]).forEach(x=>{const entry=electricalTotals[x.electricalId]??={name:x.name,qty:0};entry.qty++}));
+const electricalRows=Object.values(electricalTotals).sort((a,b)=>a.name.localeCompare(b.name));
+const electricalPane=`<div class="row sp"><h2>Electricals by room</h2><span class="row"><button class="btn sm" data-a="askElectricalVisibility" data-mode="collapse" ${rooms.length?'':'disabled'}>Collapse all</button><button class="btn sm" data-a="askElectricalVisibility" data-mode="expand" ${rooms.length?'':'disabled'}>Expand all</button><button class="btn sm" data-a="go" data-v="electricals">Manage electrical items</button></span></div>${V.pendingElectricalVisibility?`<div class="hint" role="group" aria-label="Confirm electrical room visibility change"><div>${V.pendingElectricalVisibility==='collapse'?'Collapse':'Expand'} all ${rooms.length} electrical room view(s)?</div><div class="row" style="margin-top:8px"><button class="btn sm p" data-a="confirmElectricalVisibility">Confirm ${V.pendingElectricalVisibility}</button><button class="btn sm" data-a="cancelElectricalVisibility">Cancel</button></div></div>`:''}<div class="card"><b>All-room electrical totals</b>${electricalRows.length?`<table style="margin-top:8px"><tr><th>Item</th><th>Qty</th></tr>${electricalRows.map(x=>`<tr><td>${e(x.name)}</td><td><b>${x.qty}</b></td></tr>`).join('')}<tr><th>Total</th><th>${electricalRows.reduce((n,x)=>n+x.qty,0)}</th></tr></table>`:'<p class="mu">No electrical items added yet.</p>'}</div>${rooms.length?rooms.map(electricalRoomCard).join(''):'<div class="card mu">Add a room in the Rooms tab first.</div>'}`;
+const issues=[...(V.importIssues||[]),...projectDiagnostics()];
+const diagnosticsPane=`<h2>Project diagnostics</h2><p class="mu">Checks the active project and schema for JSON structure errors and references to missing rooms or catalogue items. Rejected imports are listed here until the next successful import.</p>${issues.length?`<div class="card"><b>${issues.length} issue(s)</b></div>${issues.map(x=>`<div class="card"><b>${e(x.kind)}</b><div>${e(x.message)}</div><div class="mu" style="overflow-wrap:anywhere">${e(x.path)}</div></div>`).join('')}`:'<div class="card">No JSON errors or orphaned items found.</div>'}`;
+h=`<h1>Switchboard Planner<a class="version" href="https://shvmm.github.io/">v0.5-beta</a></h1><div class="home-tabs" role="tablist" aria-label="Home sections">${[['overview','Overview'],['rooms','Rooms'],['electricals','Electricals'],['diagnostics','Diagnostics']].map(([id,label])=>`<button class="tab ${V.homeTab===id?'active':''}" role="tab" aria-selected="${V.homeTab===id}" data-a="homeTab" data-tab="${id}">${label}</button>`).join('')}</div>${msg}<section role="tabpanel">${V.homeTab==='rooms'?roomPane:V.homeTab==='electricals'?electricalPane:V.homeTab==='diagnostics'?diagnosticsPane:overview}</section>`}
+else if(V.v==='room')h=`<h1>Add room</h1>${msg}<form data-f="room"><label>Room name<input name="n" required autofocus></label><div class="row"><button class="btn p">Create room</button>${backButton()}</div></form>`;
+else if(V.v==='comp'){const ed=SC.components.find(c=>c.id===V.editId),draft=V.moduleDraft||ed||SC.components.find(c=>c.id===V.copyModule),colors=SC.colors,hasColors=Object.keys(colors).length>0;
+h=`<h1>${ed?'Edit module':'Add module'}</h1>${msg}`+
+(hasColors?`<form data-f="comp"><label>Module name<input name="n" required autofocus placeholder="e.g. USB Charger" value="${draft?e(draft.name):''}"></label>
+<label>Size<select name="m"><option value="1" ${draft&&draft.modules===1?'selected':''}>1 module</option><option value="2" ${draft&&draft.modules===2?'selected':''}>2 modules</option></select></label>
+<label>Colour<select name="c">${Object.keys(colors).map(n=>`<option ${(draft?draft.color:Object.keys(colors)[0])===n?'selected':''}>${e(n)}</option>`).join('')}</select></label>
+<label>Description<input name="d" placeholder="optional" value="${draft?e(draft.description||''):''}"></label>
+<div class="row"><button class="btn p">${ed?'Save changes':'Add module'}</button>${draft?`<button type="button" class="btn" data-a="cancelModuleDraft">Cancel</button>`:''}${backButton()}</div></form>`
+:`<p>Add a colour before adding modules.</p><div class="row"><button class="btn p" data-a="go" data-v="colour">+ Colour</button>${backButton()}</div>`)+
+`<div class="row sp"><h2>Available modules</h2>${catalogSort("modules",V.moduleSort||"name-asc")}</div>${catalogGroups(SC.components,c=>c.color,c=>`<div class="row sp" style="padding:4px 0"><span class="row" style="gap:6px"><span style="width:12px;height:12px;border-radius:3px;background:${c.colorCode||colors[c.color]||'#eee'};border:1px solid var(--bd);display:inline-block;flex:none"></span>${e(c.name)} <span class="mu">(${c.modules}M${c.color?', '+e(c.color):''})${c.description?' — '+e(c.description):''}</span></span><span class="row" style="gap:4px">${V.delModule===c.id?`<button class="btn sm danger" data-a="confirmDelModule" data-id="${e(c.id)}">Confirm delete</button><button class="btn sm" data-a="cancelDelModule">Cancel</button>`:`<button class="btn sm" data-a="editcomp" data-id="${e(c.id)}" ${actionLabel('Edit','✎')}</button><button class="btn sm" data-a="dupcomp" data-id="${e(c.id)}">Duplicate</button><button class="btn sm danger" data-a="askDelModule" data-id="${e(c.id)}" ${actionLabel('Delete','🗑')}</button>`}</span></div>`,catalogCompare(V.moduleSort||"name-asc",c=>c.name,c=>c.modules))}`}
+else if(V.v==='plate'){const ed=SC.plates.find(t=>t.id===V.editPlateType),draft=ed||SC.plates.find(t=>t.id===V.copyPlateType);
+h=`<h1>${ed?'Edit plate type':'Add plate type'}</h1>${msg}
+${Object.keys(SC.colors).length?`<form data-f="plateType"><label>Size (modules)<input name="k" type="number" min="1" max="24" step="1" required value="${draft?draft.capacity:''}" placeholder="e.g. 18"></label><label>Rows<input name="rows" type="number" min="1" max="24" step="1" required value="${draft?draft.rows:1}"></label><label>Description<input name="d" placeholder="optional" value="${draft?e(draft.description):''}"></label><label>Colour<select name="cn">${Object.keys(SC.colors).map(n=>`<option ${n===(draft?.colorName||Object.keys(SC.colors)[0])?'selected':''}>${e(n)}</option>`).join('')}</select></label><div class="row"><button class="btn p">${ed?'Save plate type':'Add plate type'}</button>${draft?`<button type="button" class="btn" data-a="cancelPlateType">Cancel</button>`:''}${backButton()}</div></form>`:`<p>Add a colour before adding plate types.</p><div class="row"><button class="btn p" data-a="go" data-v="colour">+ Colour</button>${backButton()}</div>`}
+<div class="row sp"><h2>Available plate types</h2>${catalogSort("plates",V.plateSort||"size-asc")}</div>${catalogGroups(SC.plates,t=>t.colorName,t=>`<div class="row sp" style="padding:5px 0"><span class="row" style="gap:6px"><span style="width:14px;height:14px;border:1px solid var(--bd);border-radius:3px;background:${e(t.colorCode)}"></span>${e(plateTypeLabel(t))}</span><span class="row" style="gap:4px">${V.delPlateType===t.id?`<button class="btn sm danger" data-a="delPlateType" data-id="${e(t.id)}">Confirm delete</button><button class="btn sm" data-a="cancelPlateTypeDelete">Cancel</button>`:`<button class="btn sm" data-a="editPlateType" data-id="${e(t.id)}" ${actionLabel('Edit','✎')}</button><button class="btn sm" data-a="dupPlateType" data-id="${e(t.id)}">Duplicate</button><button class="btn sm danger" data-a="askDelPlateType" data-id="${e(t.id)}" ${actionLabel('Delete','🗑')}</button>`}</span></div>`,catalogCompare(V.plateSort||"size-asc",t=>plateTypeLabel(t),t=>t.capacity))}`}
+else if(V.v==='colour'){const old=V.editColour,code=SC.colors[old];h=`<h1>${old?'Edit colour':'Add colour'}</h1>${msg}
+<form data-f="colour"><label>Colour name<input name="n" required placeholder="e.g. Rose Gold" value="${old?e(old):''}"></label><label>Colour code<input name="cc" type="color" required value="${code||'#c9b48a'}"></label><div class="row"><button class="btn p">${old?'Save colour':'Add colour'}</button>${old?`<button type="button" class="btn" data-a="cancelEditColour">Cancel</button>`:''}${backButton()}</div></form>
+<h2>Available colours</h2><div class="card">${Object.keys(SC.colors).length?Object.entries(SC.colors).map(([n,code])=>`<div class="row sp" style="padding:4px 0"><span class="row"><span style="width:18px;height:18px;border:1px solid var(--bd);border-radius:4px;background:${e(code)}"></span><b>${e(n)}</b><span class="mu">${e(code)}</span></span><span class="row">${V.delColour===n?`<button class="btn sm danger" data-a="confirmDelColour" data-n="${e(n)}">Confirm delete</button><button class="btn sm" data-a="cancelDelColour">Cancel</button>`:`<button class="btn sm" data-a="editColour" data-n="${e(n)}" ${actionLabel('Edit','✎')}</button><button class="btn sm danger" data-a="askDelColour" data-n="${e(n)}" ${actionLabel('Delete','🗑')}</button>`}</span></div>`).join(''):'<span class="mu">No colours yet.</span>'}</div>`}
+else if(V.v==='electricals'){const ed=SC.electricals.find(x=>x.id===V.editElectrical),draft=ed||SC.electricals.find(x=>x.id===V.copyElectrical);h=`<h1>${ed?'Edit electrical item':'Add electrical item'}</h1>${msg}<form data-f="electricalType"><label>Name<input name="n" required autofocus value="${draft?e(draft.name):''}" placeholder="e.g. Doorbell"></label><label>Description<input name="d" value="${draft?e(draft.description):''}" placeholder="Optional details"></label><div class="row"><button type="button" class="btn p" data-a="saveElectricalType">${ed?'Save changes':'Add electrical item'}</button>${draft?`<button type="button" class="btn" data-a="cancelElectricalDraft">Cancel</button>`:''}${backButton()}</div></form><h2>Available electrical items</h2><div class="card">${SC.electricals.length?SC.electricals.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(x=>`<div class="row sp" style="padding:5px 0;border-bottom:1px solid var(--bd)"><span><b>${e(x.name)}</b>${x.description?` <span class="mu">— ${e(x.description)}</span>`:''}</span><span class="row">${V.delElectrical===x.id?`<button class="btn sm danger" data-a="confirmDelElectrical" data-id="${e(x.id)}">Confirm delete</button><button class="btn sm" data-a="cancelDelElectrical">Cancel</button>`:`<button class="btn sm" data-a="editElectrical" data-id="${e(x.id)}" ${actionLabel('Edit','✎')}</button><button class="btn sm" data-a="dupElectrical" data-id="${e(x.id)}">Duplicate</button><button class="btn sm danger" data-a="askDelElectrical" data-id="${e(x.id)}" ${actionLabel('Delete','🗑')}</button>`}</span></div>`).join(''):'<span class="mu">No electrical items yet.</span>'}</div>`}
+else if(V.v==='edit'){const p=cur();if(!p){V.v='home';return render()}const o=occ(p),free=o.filter(x=>x<0).length;
+h=`<div class="row sp"><h1>${e(V.room)} › ${e(p.name)}</h1><button class="btn sm" data-a="go" data-v="home">Done</button></div>${msg}
+<label>Name<input data-e="name" value="${e(p.name)}"></label>
+<label>Plate type<select data-e="type">${SC.plates.some(t=>t.id===p.plateTypeId)?'':`<option value="" selected disabled>Current type is no longer in the catalogue</option>`}${SC.plates.map(t=>`<option value="${e(t.id)}" ${t.id===p.plateTypeId?'selected':''}>${e(plateTypeLabel(t))}</option>`).join('')}</select></label>
+${V.pendingType?.pid===p.id?`<div class="hint" role="group" aria-label="Confirm plate type change">Switch to <b>${e(plateTypeLabel(SC.plates.find(t=>t.id===V.pendingType.typeId)))}</b>? This will remove all ${p.items.length} placed module(s) from this plate.<div class="row" style="margin-top:8px"><button class="btn sm danger" data-a="confirmType">Switch and clear plate</button><button class="btn sm" data-a="cancelType">Cancel</button></div></div>`:''}
+<div class="mu">${e(p.plateTypeLabel)}</div>
+${plate(p,true)}<div class="mu">${p.capacity-free}/${p.capacity} modules used. Pick a module, tap "+" to place it; tap a placed module to remove it. For a module that uses two spaces, tap the square where it should start.</div>
+<h2>Modules</h2>${(()=>{const groups={};SC.components.forEach(c=>{(groups[c.color]=groups[c.color]||[]).push(c)});
+const colors=SC.colors,order=Object.keys(colors).filter(cn=>groups[cn]).concat(Object.keys(groups).filter(cn=>!colors[cn]));
+return order.map(cn=>`<div style="margin:10px 0 4px"><div class="row" style="gap:6px;align-items:center"><span style="width:12px;height:12px;border-radius:3px;background:${colors[cn]||'#eee'};border:1px solid var(--bd);display:inline-block;flex:none"></span><span class="mu">${e(cn||'Unspecified')}</span><hr style="flex:1;border:none;border-top:1px solid var(--bd);margin:0"></div><div class="chips" style="margin-top:6px">${groups[cn].slice().sort((a,b)=>a.modules-b.modules).map(c=>`<button class="btn sm chip ${V.sel===c.id?'on':''}" data-a="sel" title="${e((c.color?c.color+' — ':'')+(c.description||''))}" data-id="${e(c.id)}"><span style="display:inline-block;width:9px;height:9px;border-radius:3px;background:${c.colorCode||colors[c.color]||'#eee'};margin-right:5px;vertical-align:middle;border:1px solid rgba(0,0,0,.25)"></span>${e(c.name)} (${c.modules}M)</button>`).join('')}</div></div>`).join('')})()}`}
+A.innerHTML=`<div class="row" style="justify-content:flex-end;margin-bottom:10px"><button class="btn sm" data-a="toggleIcons" aria-pressed="${V.iconActions}">${V.iconActions?'Show text buttons':'Show icon buttons'}</button></div>`+h}
+const act={
+saveElectricalType:(d,button)=>{const form=button.closest('form');if(form)forms.electricalType(new FormData(form),form)},
+placeElectrical:(d,button)=>{const form=button.closest('form');if(form)forms.addElectrical(new FormData(form),form)},
+askRoomVisibility:d=>{if(!roomNames().length||!['collapse','expand'].includes(d.mode))return;V.pendingRoomVisibility=d.mode;render()},
+cancelRoomVisibility:()=>{V.pendingRoomVisibility=null;render()},
+confirmRoomVisibility:()=>{const mode=V.pendingRoomVisibility;if(!['collapse','expand'].includes(mode))return;roomNames().forEach(r=>{V.collapsedRooms[r]=mode==='collapse'});V.pendingRoomVisibility=null;render()},
+homeTab:d=>{if(!['overview','rooms','electricals','diagnostics'].includes(d.tab))return;V.homeTab=d.tab;render()},
+editElectrical:d=>{if(!SC.electricals.some(x=>x.id===d.id))return;V.editElectrical=d.id;V.copyElectrical=null;render()},
+dupElectrical:d=>{if(!SC.electricals.some(x=>x.id===d.id))return;V.editElectrical=null;V.copyElectrical=d.id;render()},
+cancelElectricalDraft:()=>{V.editElectrical=null;V.copyElectrical=null;render()},
+askDelElectrical:d=>{V.delElectrical=d.id;render()},
+cancelDelElectrical:()=>{V.delElectrical=null;render()},
+confirmDelElectrical:d=>{if(V.delElectrical!==d.id)return;const item=SC.electricals.find(x=>x.id===d.id);if(!item)return;const used=Object.values(P.roomElectricals).flat().filter(x=>x.electricalId===d.id).length;if(used)V.msg=`${item.name} is used ${used} time(s) in rooms. Remove it from those rooms first.`;else{SC.electricals=SC.electricals.filter(x=>x.id!==d.id);saveSchema()}V.delElectrical=null;render()},
+removeElectrical:d=>{const items=P.roomElectricals[d.r];if(!items)return;const i=items.findIndex(x=>x.electricalId===d.id);if(i<0)return;items.splice(i,1);saveProject();render()},
+toggleRoom:d=>{V.collapsedRooms[d.r]=!V.collapsedRooms[d.r];render()},
+toggleElectricalRoom:d=>{V.collapsedElectricalRooms[d.r]=!V.collapsedElectricalRooms[d.r];render()},
+askElectricalVisibility:d=>{if(!roomNames().length||!['collapse','expand'].includes(d.mode))return;V.pendingElectricalVisibility=d.mode;render()},
+cancelElectricalVisibility:()=>{V.pendingElectricalVisibility=null;render()},
+confirmElectricalVisibility:()=>{const mode=V.pendingElectricalVisibility;if(!['collapse','expand'].includes(mode))return;roomNames().forEach(r=>{V.collapsedElectricalRooms[r]=mode==='collapse'});V.pendingElectricalVisibility=null;render()},
+moveRoom:d=>{const order=roomNames(),i=order.indexOf(d.r),j=i+Number(d.dir);if(i<0||j<0||j>=order.length)return;[order[i],order[j]]=[order[j],order[i]];P.roomOrder=order;saveProject();render()},
+movePlate:d=>{const list=P.rooms[d.r];if(!list)return;const i=list.findIndex(p=>p.id===d.p),j=i+Number(d.dir);if(i<0||j<0||j>=list.length)return;[list[i],list[j]]=[list[j],list[i]];saveProject();render()},
+askClearProject:()=>{V.clearProject=true;render()},
+cancelClearProject:()=>{V.clearProject=false;render()},
+confirmClearProject:()=>{if(!V.clearProject)return;P=seedProject();SC=seedSchema();saveProject();saveSchema();resetView();V.msg='Project and schema cleared.';render()},
+editColour:d=>{if(!Object.prototype.hasOwnProperty.call(SC.colors,d.n))return;V.editColour=d.n;render()},
+cancelEditColour:()=>{V.editColour=null;render()},
+askDelModule:d=>{V.delModule=d.id;render()},
+cancelDelModule:()=>{V.delModule=null;render()},
+confirmDelModule:d=>{if(V.delModule!==d.id)return;const item=SC.components.find(c=>c.id===d.id);if(!item)return;let used=0;for(const room of Object.values(P.rooms))for(const p of room)for(const placed of p.items)if(placed.moduleId===item.id)used++;
+if(used)V.msg=`${item.name} is placed ${used} time(s). Remove those placements before deleting the module.`;
+else{SC.components=SC.components.filter(c=>c.id!==d.id);if(V.editId===d.id)V.editId=null;saveSchema()}V.delModule=null;render()},
+askDelColour:d=>{V.delColour=d.n;render()},
+cancelDelColour:()=>{V.delColour=null;render()},
+confirmDelColour:d=>{if(V.delColour!==d.n||!Object.prototype.hasOwnProperty.call(SC.colors,d.n))return;const plateUses=SC.plates.filter(t=>t.colorName===d.n).length,moduleUses=SC.components.filter(c=>c.color===d.n).length;
+if(plateUses||moduleUses)V.msg=`${d.n} is used by ${plateUses} plate type(s) and ${moduleUses} module(s). Change or remove those entries first.`;
+else{delete SC.colors[d.n];saveSchema()}V.delColour=null;render()},
+confirmType:()=>{const p=cur(),type=SC.plates.find(t=>t.id===V.pendingType?.typeId);if(!p||!type||V.pendingType.pid!==p.id)return;Object.assign(p,{plateTypeId:type.id,plateTypeLabel:plateTypeLabel(type),color:type.colorName,colorCode:type.colorCode,description:type.description,capacity:type.capacity,rows:type.rows,items:[]});V.pendingType=null;V.sel=null;saveProject();render()},
+cancelType:()=>{V.pendingType=null;render()},
+copyExport:async()=>{const box=$('#exportText');try{await navigator.clipboard.writeText(V.exportText);V.msg='JSON copied.';render()}catch(x){box.focus();box.select()}},
+closeExport:()=>{if(V.exportUrl)URL.revokeObjectURL(V.exportUrl);V.exportText=null;V.exportUrl=null;render()},
+toggleIcons:()=>{V.iconActions=!V.iconActions;try{localStorage.setItem('switchboard-icon-actions',String(V.iconActions))}catch(x){}render()},
+addPlateRoom:d=>{V.addPlateRoom=d.r;V.collapsedRooms[d.r]=false;render()},
+cancelAddPlate:()=>{V.addPlateRoom=null;render()},
+go:d=>{V.v=d.v;V.pendingType=null;V.copyPlateType=null;V.copyModule=null;V.moduleDraft=null;V.editColour=null;if(d.v==='comp')V.editId=null;if(d.v==='electricals'){V.editElectrical=null;V.copyElectrical=null}render()},
+editPlateType:d=>{V.editPlateType=d.id;V.copyPlateType=null;render()},
+cancelPlateType:()=>{V.editPlateType=null;V.copyPlateType=null;render()},
+dupPlateType:d=>{if(!SC.plates.some(t=>t.id===d.id))return;V.editPlateType=null;V.copyPlateType=d.id;render()},
+askDelPlateType:d=>{V.delPlateType=d.id;render()},
+cancelPlateTypeDelete:()=>{V.delPlateType=null;render()},
+delPlateType:d=>{if(V.delPlateType!==d.id)return;let used=0;for(const room of Object.values(P.rooms))for(const p of room)if(p.plateTypeId===d.id)used++;
+if(used)V.msg=`This plate type is used ${used} time(s). Remove or switch those plates before deleting it.`;
+else{SC.plates=SC.plates.filter(t=>t.id!==d.id);if(V.editPlateType===d.id)V.editPlateType=null;saveSchema()}V.delPlateType=null;render()},
+editcomp:d=>{V.editId=d.id;V.copyModule=null;V.moduleDraft=null;V.v='comp';render()},
+dupcomp:d=>{if(!SC.components.some(c=>c.id===d.id))return;V.editId=null;V.copyModule=d.id;V.moduleDraft=null;V.v='comp';render()},
+cancelModuleDraft:()=>{V.editId=null;V.copyModule=null;V.moduleDraft=null;render()},
+edit:d=>{V.room=d.r;V.pid=d.p;V.v='edit';V.sel=null;V.pendingType=null;render()},
+sel:d=>{V.sel=d.id;render()},
+put:d=>{const p=cur(),c=SC.components.find(x=>x.id===V.sel);if(!c){V.msg='Select a module first.'}else{const k=+d.k,n=cols(p),o=occ(p);let ok=k%n+c.modules<=n;for(let j=0;j<c.modules;j++)if(o[k+j]!==-1)ok=false;
+if(ok){p.items.push({moduleId:c.id,moduleLabel:moduleLabel(c),component:c.name,modules:c.modules,color:c.color,colorCode:c.colorCode,at:k});p.items.sort((a,b)=>a.at-b.at);saveProject()}else V.msg=c.modules+'-space module does not fit there.'}render()},
+rm:d=>{cur().items.splice(+d.i,1);saveProject();render()},
+dupplate:d=>{const src=plates(d.r).find(x=>x.id===d.p);if(!src)return;let base=src.name+' copy',name=base,i=2;const names=plates(d.r).map(x=>x.name);
+while(names.includes(name))name=base+' '+i++;
+P.rooms[d.r].push({...src,id:uid(),name,items:src.items.map(it=>({...it}))});saveProject();render()},
+delplateh:d=>{V.delPlate=d.p;render()},
+canceldelh:()=>{V.delPlate=null;render()},
+delplate2h:d=>{P.rooms[d.r]=plates(d.r).filter(x=>x.id!==d.p);V.delPlate=null;saveProject();render()},
+delroomh:d=>{V.delRoom=d.r;V.collapsedRooms[d.r]=false;render()},
+canceldelroom:()=>{V.delRoom=null;render()},
+delroom:d=>{if(V.delRoom!==d.r||!Object.prototype.hasOwnProperty.call(P.rooms,d.r))return;delete P.rooms[d.r];delete P.roomElectricals[d.r];P.roomOrder=roomNames();delete V.collapsedRooms[d.r];delete V.collapsedElectricalRooms[d.r];V.delRoom=null;saveProject();render()},
+duproom:d=>{const src=d.r;let base=src+' copy',name=base,i=2;while(P.rooms[name])name=base+' '+i++;
+P.rooms[name]=plates(src).map(p=>({...p,id:uid(),items:p.items.map(it=>({...it}))}));P.roomElectricals[name]=(P.roomElectricals[src]||[]).map(x=>({...x,id:uid()}));P.roomOrder=roomNames();saveProject();render()},
+renroom:d=>{V.renameRoom=d.r;render()},
+cancelren:()=>{V.renameRoom=null;render()},
+open:()=>$('#fi').click(),
+openSchema:()=>$('#fiSchema').click(),
+export:()=>{try{offerJSON({...P,schema:SC},P.name||'project')}catch(x){V.msg='Project export failed. Please try again.';render()}},
+exportPdf:()=>{try{exportReport()}catch(x){V.msg='Could not open the PDF report. Allow pop-ups and try again.';render()}},
+exportSchema:()=>{try{offerJSON(SC,SC.name||'schema')}catch(x){V.msg='Schema export failed. Please try again.';render()}}};
+const forms={
+electricalType:(f,form)=>{const name=f.get('n').trim(),description=f.get('d').trim();if(!name)return formError(form,'Enter a name.');if(SC.electricals.some(x=>x.id!==V.editElectrical&&x.name.toLowerCase()===name.toLowerCase()))return formError(form,'An electrical item with this name already exists.');if(V.editElectrical){const item=SC.electricals.find(x=>x.id===V.editElectrical);if(!item)return;Object.assign(item,{name,description});for(const entries of Object.values(P.roomElectricals))for(const placed of entries)if(placed.electricalId===item.id)Object.assign(placed,{name,description});saveProject()}else SC.electricals.push({id:uid(),name,description});V.editElectrical=null;V.copyElectrical=null;saveSchema();render()},
+addElectrical:(f,form)=>{const room=f.get('r'),item=SC.electricals.find(x=>x.id===f.get('type')),qty=Number(f.get('qty'));if(!Object.hasOwn(P.rooms,room)||!item||!Number.isInteger(qty)||qty<1||qty>99)return formError(form,'Choose an electrical item and a quantity from 1 to 99.');const entries=P.roomElectricals[room]??=[];for(let i=0;i<qty;i++)entries.push({id:uid(),electricalId:item.id,name:item.name,description:item.description});saveProject();render()},
+colour:(f,form)=>{const name=f.get('n').trim(),code=f.get('cc').toLowerCase();
+if(!name||!/^#[0-9a-f]{6}$/.test(code))return formError(form,'Enter a colour name and a valid colour code.');
+if(Object.keys(SC.colors).some(n=>n!==V.editColour&&n.toLowerCase()===name.toLowerCase()))return formError(form,'That colour name already exists.');
+if(V.editColour){const old=V.editColour;if(!Object.prototype.hasOwnProperty.call(SC.colors,old))return;delete SC.colors[old];SC.colors[name]=code;
+SC.plates.forEach(t=>{if(t.colorName===old){t.colorName=name;t.colorCode=code}});
+SC.components.forEach(c=>{if(c.color===old){c.color=name;c.colorCode=code}});
+for(const room of Object.values(P.rooms))for(const p of room){if(p.color===old){p.color=name;p.colorCode=code;p.plateTypeLabel=plateTypeLabel({capacity:p.capacity,rows:p.rows,colorName:name,description:p.description||''})}for(const item of p.items)if(item.color===old){item.color=name;item.colorCode=code;item.moduleLabel=moduleLabel({name:item.component,modules:item.modules,color:name})}}
+V.editColour=null;saveSchema();saveProject()}
+else{SC.colors[name]=code;saveSchema()}render()},
+plateType:(f,form)=>{const capacity=+f.get('k'),rows=+f.get('rows'),description=f.get('d').trim(),colorName=f.get('cn'),colorCode=SC.colors[colorName];
+if(!Number.isInteger(capacity)||capacity<1||capacity>24||!Number.isInteger(rows)||rows<1||capacity%rows!==0)return formError(form,'Plate size must be fully divisible by rows (for example, 18 modules ÷ 3 rows = 6 per row).');
+if(!colorCode)return formError(form,'Select a defined colour.');
+if(SC.plates.some(t=>t.id!==V.editPlateType&&t.capacity===capacity&&t.rows===rows&&t.colorName===colorName))return formError(form,'A plate type with this size, row count and colour already exists. Change at least one of these fields.');
+const fields={capacity,rows,description,colorName,colorCode};if(V.editPlateType)Object.assign(SC.plates.find(t=>t.id===V.editPlateType),fields);else SC.plates.push({id:uid(),...fields});V.editPlateType=null;V.copyPlateType=null;saveSchema();render()},
+room:(f,form)=>{const n=f.get('n').trim();if(!n)return formError(form,'Enter a room name.');if(P.rooms[n])return formError(form,'That room already exists.');P.rooms[n]=[];P.roomElectricals[n]=[];P.roomOrder=roomNames();saveProject();V.v='home';render()},
+renroom:(f,form)=>{const old=f.get('old'),n=f.get('n').trim();if(!n)return formError(form,'Enter a room name.');
+if(n!==old){if(P.rooms[n])return formError(form,'That room already exists.');P.rooms[n]=P.rooms[old];delete P.rooms[old];P.roomElectricals[n]=P.roomElectricals[old]||[];delete P.roomElectricals[old];P.roomOrder=P.roomOrder.map(r=>r===old?n:r);V.collapsedRooms[n]=V.collapsedRooms[old];delete V.collapsedRooms[old];V.collapsedElectricalRooms[n]=V.collapsedElectricalRooms[old];delete V.collapsedElectricalRooms[old];saveProject()}
+V.renameRoom=null;render()},
+comp:f=>{const n=f.get('n').trim(),m=+f.get('m'),c=f.get('c'),d=f.get('d').trim();V.moduleDraft={name:f.get('n'),modules:m,color:c,description:f.get('d')};
+if(!c){V.msg='Choose a colour.';return render()}
+if(SC.components.some(x=>x.id!==V.editId&&x.name.toLowerCase()===n.toLowerCase()&&x.modules===m&&x.color===c)){V.msg='A module with this name, size and colour already exists. Change at least one of these fields.';return render()}
+if(V.editId){Object.assign(SC.components.find(x=>x.id===V.editId),{name:n,modules:m,color:c,colorCode:SC.colors[c],description:d})}
+else SC.components.push({id:uid(),name:n,modules:m,color:c,colorCode:SC.colors[c],description:d});
+saveSchema();V.editId=null;V.copyModule=null;V.moduleDraft=null;render()},
+plate:f=>{const type=SC.plates.find(t=>t.id===f.get('type')),room=f.get('r');if(!type||!P.rooms[room])return;const p={id:uid(),plateTypeId:type.id,plateTypeLabel:plateTypeLabel(type),name:f.get('n').trim(),color:type.colorName,colorCode:type.colorCode,description:type.description,capacity:type.capacity,rows:type.rows,items:[]};V.room=room;P.rooms[room].push(p);V.pid=p.id;V.sel=null;V.addPlateRoom=null;saveProject();V.v='edit';render()}};
+document.addEventListener('click',ev=>{const t=ev.target.closest('[data-a]');if(t)act[t.dataset.a]?.(t.dataset,t)});
+document.addEventListener('keydown',ev=>{if(!ev.target.closest('.home-tabs .tab')||!['ArrowLeft','ArrowRight'].includes(ev.key))return;ev.preventDefault();const tabs=['overview','rooms','electricals','diagnostics'],i=tabs.indexOf(V.homeTab),tab=tabs[(i+(ev.key==='ArrowRight'?1:tabs.length-1))%tabs.length];act.homeTab({tab});document.querySelector(`.home-tabs [data-tab="${tab}"]`)?.focus()});
+document.addEventListener('keydown',ev=>{if(!ev.target.matches('.cell[data-a]')||!['Enter',' '].includes(ev.key))return;ev.preventDefault();ev.target.click()});
+document.addEventListener('submit',ev=>{ev.preventDefault();forms[ev.target.dataset.f]?.(new FormData(ev.target),ev.target)});
+document.addEventListener('change',ev=>{const t=ev.target;
+if(t.dataset.sort==='modules'||t.dataset.sort==='plates'){V[t.dataset.sort==='modules'?'moduleSort':'plateSort']=t.value;render();return}
+if(t.dataset.n!==undefined){P.name=t.value;saveProject();return}
+if(t.dataset.author!==undefined){P.author=t.value;saveProject();return}
+if(t.dataset.description!==undefined){P.description=t.value;saveProject();return}
+if(t.dataset.sn!==undefined){SC.name=t.value||SC.name;saveSchema();return}
+const k=t.dataset.e;if(!k)return;const p=cur();if(!p)return;
+if(k==='name')p.name=t.value||p.name;
+else if(k==='type'){const type=SC.plates.find(x=>x.id===t.value);if(!type)return;V.pendingType=type.id===p.plateTypeId?null:{pid:p.id,typeId:type.id};render();return}
+saveProject();render()});
+$('#fi').addEventListener('change',ev=>{const f=ev.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const j=JSON.parse(r.result);const {schema,...project}=record(j)?j:{};if(!validProject(project)||!validSchema(schema)){V.importIssues=[{kind:'JSON error',path:f.name,message:'Project import was rejected.'},...projectDiagnostics(project,schema)];V.homeTab='diagnostics';V.v='home'}else{P=project;P.author=typeof P.author==='string'?P.author:'';P.description=typeof P.description==='string'?P.description:'';P.roomElectricals??={};P.roomOrder=roomNames();SC=schema;SC.electricals??=[];saveProject();saveSchema();resetView()}}catch(x){V.importIssues=[{kind:'JSON error',path:f.name,message:`Could not parse project JSON: ${x.message}`}];V.homeTab='diagnostics';V.v='home'}render()};r.readAsText(f);ev.target.value=''});
+$('#fiSchema').addEventListener('change',ev=>{const f=ev.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const j=JSON.parse(r.result);if(!validSchema(j)){V.importIssues=[{kind:'JSON error',path:f.name,message:'Schema import was rejected.'},...projectDiagnostics(P,j)];V.homeTab='diagnostics';V.v='home'}else{SC=j;SC.electricals??=[];saveSchema();resetView()}}catch(x){V.importIssues=[{kind:'JSON error',path:f.name,message:`Could not parse schema JSON: ${x.message}`}];V.homeTab='diagnostics';V.v='home'}render()};r.readAsText(f);ev.target.value=''});
+render();
+</script></body></html>
