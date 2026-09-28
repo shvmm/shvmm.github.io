@@ -1,41 +1,53 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-
-        <link rel="icon" href="../images/Schematic_diagram_of_the_human_eye_en.svg.png">
-        <link rel="stylesheet" href="../styles/style.css">
-        <title>DOF Calc</title>
-
-
-    </head>
-    <body>
-        <!--
-
-        <h1>Displays a Number Field</h1>
-
-        <label for="quantity">Test Quantity (between 1 and 5):</label>
-        <input type="number" id="quantity" name="quantity" min="1" max="5">
-        <input type="submit">
-
-        -->
-
-        <!-- CALCULATOR FOR CHANGE IN FOCAL LENGTH ACCORDING TO A CONSTANT IMAGE DISTANCE-->
-
-        <h1>Calculator for decrease in focal length (increase in power) due to 'fixed' image distance</h1>
-
-        <span>Enter the focal length corresponding to viewing infinity in cm NOT mm:</span><br>
-        <input type="text" class="input" id="f_inf">
-        <br>
-        <span>Enter the object distance in cm NOT metre/mm:</span><br>
-        <input type="text" class="input" id="u_input">
-
-        <input type="button" class="button" value="Calculate changed focal length" onclick="calc_changed_f()">
-        <br>Decreased focal length is <span id="f_changed"></span> cm.
-
-        <script>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the pinhole effect of pupillary contraction through focal length, aperture, and circle of confusion.">
+  <meta name="theme-color" content="#151714">
+  <title>Depth of field — Shivam Maurya</title>
+  <link rel="icon" href="../images/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles/style.css">
+  <script src="../scripts/theme.js"></script>
+  <script src="../scripts/site.js" defer></script>
+</head>
+<body class="">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <header class="site-header wrap">
+    <a class="wordmark" href="../index.html" aria-label="Shivam Maurya home">shvm<span class="brand-dot">.</span><span class="wordmark-caption">A PERSONAL FIELD NOTEBOOK</span></a>
+    <nav class="main-nav" aria-label="Main navigation"><a href="../index.html#explore">Explore</a><a href="../index.html#toolkit">Toolkit</a><a href="../index.html#about">About</a></nav>
+    <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch color theme" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></button>
+  </header>
+  <main id="main" class="page-main wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Depth of field</span></nav>
+    <div class="page-intro"><p class="eyebrow">OPTICS TOOLKIT / 02</p><h1>See the bigger <em>picture.</em></h1><p>Explore the pinhole effect of pupillary contraction through focal length, aperture, and circle of confusion.</p></div>
+<noscript><p class="noscript-note">Enable JavaScript to run these calculators.</p></noscript>
+    <div class="calculator-layout">
+      <section class="calculator-panel" aria-labelledby="focal-title"><h2 id="focal-title">1. Adjust the focal length</h2><p>Calculate the decrease in focal length for a fixed image distance.</p>
+        <div class="field"><label for="f_inf">Focal length at infinity (cm)</label><input type="number" id="f_inf" step="any" required min="0.000001" aria-describedby="f_inf_help"><small id="f_inf_help">Use centimeters, not millimeters.</small></div>
+        <div class="field"><label for="u_input">Object distance (cm)</label><input type="number" id="u_input" step="any" required min="0.000001" aria-describedby="u_input_help"><small id="u_input_help">Use centimeters, not meters.</small></div>
+        <button class="button primary" type="button" data-calculate="calc_changed_f" data-inputs="f_inf u_input">Calculate focal length</button><p class="form-error" role="alert"></p>
+        <div class="result-box" role="status" aria-live="polite" aria-atomic="true"><p>Decreased focal length: <span id="f_changed">—</span> cm</p></div>
+      </section>
+      <section class="calculator-panel" aria-labelledby="aperture-title"><h2 id="aperture-title">2. Find the F-number</h2><p>Enter the decreased focal length from step 1. If you know the aperture diameter, calculate its F-number here.</p>
+        <div class="field"><label for="f_changed_2">Decreased focal length (cm)</label><input type="number" id="f_changed_2" step="any" required min="0.000001" aria-describedby="f_changed_2_help"><small id="f_changed_2_help">This value is also used in step 3.</small></div>
+        <div class="field"><label for="a_size">Aperture diameter (mm)</label><input type="number" id="a_size" step="any" required min="0.000001" aria-describedby="a_size_help"><small id="a_size_help">Use millimeters for this measurement.</small></div>
+        <button class="button primary" type="button" data-calculate="calc_f_number" data-inputs="f_changed_2 a_size">Calculate F-number</button><p class="form-error" role="alert"></p>
+        <div class="result-box" role="status" aria-live="polite" aria-atomic="true"><p>F-number: <span id="Aperture_number">—</span></p></div>
+      </section>
+      <section class="calculator-panel full-width" aria-labelledby="dof-title"><h2 id="dof-title">3. Calculate depth of field</h2><p>Enter your known F-number or the result from step 2. The decreased focal length from step 2 is used here as well.</p>
+        <div class="field"><label for="N_input">F-number (N)</label><input type="number" id="N_input" step="any" required min="0.000001" aria-describedby="N_input_help"><small id="N_input_help">Use the result from step 2 if needed.</small></div>
+        <div class="field"><label for="coc_input">Circle of confusion (mm)</label><input type="number" id="coc_input" step="any" required min="0.000001" aria-describedby="coc_input_help"><small id="coc_input_help">Use millimeters.</small></div>
+        <div class="field"><label for="v_input">Image distance (cm)</label><input type="number" id="v_input" step="any" required min="0.000001" aria-describedby="v_input_help"><small id="v_input_help">In most lenses, this is the reported focal length.</small></div>
+        <button class="button primary" type="button" data-calculate="calc_dof" data-inputs="f_changed_2 N_input coc_input v_input">Calculate depth of field</button><p class="form-error" role="alert"></p>
+        <div class="result-box" role="status" aria-live="polite" aria-atomic="true"><p>Total depth of field: <span id="dof_k">—</span> cm</p><p>r: <span id="r_coc">—</span> focal units<br>k: <span id="k_object">—</span> focal units<br>j: <span id="j_image">—</span> focal units</p><p>Aperture angle from object: <span id="theta_k">—</span>°<br>Aperture angle from image: <span id="theta_j">—</span>°</p><p>j close: <span id="close_j">—</span> / j distant: <span id="distant_j">—</span><br>k close: <span id="close_k">—</span> / k distant: <span id="distant_k">—</span> (focal units)</p></div>
+      </section>
+    </div>
+    <p class="page-return"><a class="text-link" href="../index.html">← Back to the notebook</a></p>
+  </main>
+  <footer class="site-footer wrap"><span>© <span data-year>2026</span> Shivam Maurya</span><span class="location"><span class="status-dot"></span> Ballia, India <span class="footer-clock" data-clock></span></span><a href="#main">Back to top ↑</a></footer>
+<script>
             function calc_changed_f() {
 
                 var inf_f = parseFloat(document.getElementById("f_inf").value);
@@ -46,48 +58,7 @@
                 document.getElementById("f_changed").innerHTML = changed_f.toFixed(4);
             }
         </script>
-
-
-
-
-
-
-
-
-
-
-
-        <!-- DEPTH OF FIELD CALCULATOR ------------------------------------------------------------->
-
-        <h1>DoF (Depth of Field) Calculator; Use this calculator to Calculate pinhole effect due to pupillary contractions</h1>
-        
-        <span>Enter the decreased focal length of the lens in cms (it usually changes depending upon the object distance).
-            <input type="text" class="input" id="f_changed_2">
-            <br>A calculator for decreased focal length is provided above.<br>
-        </span>
-
-        
-
-        <br>
-        <span>Enter the Aperture number/F-number (N)</span>
-        <input type="text" class="input" id="N_input">
-
-
-
-        <hr>
-
-        <p>
-            If you know the Aperture size (diameter) instead, use this F-number calculator and THEN ENTER N ABOVE.
-        </p>
-
-        <span>Enter the Aperture size in mm NOT CM:</span><br>
-        <input type="text" class="input" id="a_size" >
-
-        <input type="button" class="button" value="Calculate F-number" onclick="calc_f_number()">
-        <br>The F-number is <span id="Aperture_number"></span>
-
-
-        <script>
+<script>
             function calc_f_number() {
 
                 var changed_f = parseFloat(document.getElementById("f_changed_2").value);
@@ -98,43 +69,7 @@
                 document.getElementById("Aperture_number").innerHTML = f_number.toFixed(1);
             }
         </script>
-
-        <hr>
-
-
-
-        <span>Enter the value of Circle of Confusion (C.o.C) in mm:</span><br>
-        <input type="text" class="input" id="coc_input" ><br>
-
-        <span>Enter image distance formed by the lens in cm NOT mm (In most lenses, this is the reported focal length)</span><br>
-        <input type="text" class="input" id="v_input" >
-
-
-
-        <input type="button" class="button" value="Calculate total D.O.F." onclick="calc_dof()">
-        <br>
-        <!---->
-
-        Your r is <span id="r_coc"></span> focal units.<br>
-        Your k is <span id="k_object"></span> focal units.<br>
-        Your j is <span id="j_image"></span> focal units.<hr width="50%" align="left">
-        
-
-        The angle subtended by Aperture from object is <span id="theta_k"></span> degrees.<br>
-        The angle subtended by Aperture from image is <span id="theta_j"></span> degrees.<hr width="50%" align="left">
-
-        Your j_close is <span id="close_j"></span> focal units.<br>
-        Your j_distant is <span id="distant_j"></span> focal units.<hr width="50%" align="left">
-
-        Your k_close is <span id="close_k"></span> focal units.<br>
-        Your k_distant is <span id="distant_k"></span> focal units.<hr width="50%" align="left">
-
-        Total DoF for the given CoC comes out to be <span id="dof_k"></span> cms.
-
-
-
-
-        <script>
+<script>
             function calc_dof() {
                 var changed_f = parseFloat(document.getElementById("f_changed_2").value); // in cm
                 var f_number = parseFloat(document.getElementById("N_input").value);
@@ -184,9 +119,5 @@
 
             }
         </script>
-
-        <hr>
-        <a href="../index.html">Go back to home.</a>
-
-    </body>
+</body>
 </html>

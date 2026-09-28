@@ -1,36 +1,46 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-
-        <link rel="icon" href="../images/Schematic_diagram_of_the_human_eye_en.svg.png">
-        <link rel="stylesheet" href="../styles/style.css">
-        <title>AFD Calc</title>
-
-
-    </head>
-    <body>
-
-        <!-- FOCUSING DISTANCE CALCULATOR-->
-
-        <h1>Actual focusing distance calculator</h1>
-        
-        <p class="inputHeading">Current signed Prescription (in Dioptre) of your eye that you're also wearing right now:</p>
-        <input type="text" class="input" id="power_input">
-        <p>The apparent distance at which you're focusing in cms</p>
-        <input type="text" class="input" id="distance_input">
-
-        <input type="button" class="button" value="Calculate Actual Focusing Distance" onclick="calcAFD()">
-        <br>
-        Actual focusing distance comes out to be <span id="balance"></span> cms compared to provided apparent value of <span id="apparent"></span> cm.
-        
-
-
-
-
-        <script>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the relation between prescription, apparent focus, and actual focusing distance. All distances on this page use centimeters.">
+  <meta name="theme-color" content="#151714">
+  <title>Focusing distance — Shivam Maurya</title>
+  <link rel="icon" href="../images/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles/style.css">
+  <script src="../scripts/theme.js"></script>
+  <script src="../scripts/site.js" defer></script>
+</head>
+<body class="">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <header class="site-header wrap">
+    <a class="wordmark" href="../index.html" aria-label="Shivam Maurya home">shvm<span class="brand-dot">.</span><span class="wordmark-caption">A PERSONAL FIELD NOTEBOOK</span></a>
+    <nav class="main-nav" aria-label="Main navigation"><a href="../index.html#explore">Explore</a><a href="../index.html#toolkit">Toolkit</a><a href="../index.html#about">About</a></nav>
+    <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch color theme" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></button>
+  </header>
+  <main id="main" class="page-main wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Focusing distance</span></nav>
+    <div class="page-intro"><p class="eyebrow">OPTICS TOOLKIT / 01</p><h1>Bring it into <em>focus.</em></h1><p>Explore the relation between prescription, apparent focus, and actual focusing distance. All distances on this page use centimeters.</p></div>
+<noscript><p class="noscript-note">Enable JavaScript to run these calculators.</p></noscript>
+    <div class="calculator-layout">
+      <section class="calculator-panel" aria-labelledby="afd-title"><h2 id="afd-title">Actual focusing distance</h2><p>Use the signed prescription you are currently wearing and the apparent focusing distance.</p>
+        <div class="field"><label for="power_input">Current prescription (diopters)</label><input type="number" id="power_input" step="any" required aria-describedby="power_input_help"><small id="power_input_help">Include the sign, for example −2.</small></div>
+        <div class="field"><label for="distance_input">Apparent focusing distance (cm)</label><input type="number" id="distance_input" step="any" required min="0.000001" aria-describedby="distance_input_help"><small id="distance_input_help">Enter a distance greater than zero.</small></div>
+        <button class="button primary" type="button" data-calculate="calcAFD" data-inputs="power_input distance_input">Calculate focusing distance</button><p class="form-error" role="alert"></p>
+        <div class="result-box" role="status" aria-live="polite" aria-atomic="true"><p>Actual focusing distance: <span id="balance">—</span> cm</p><p>Apparent distance: <span id="apparent">—</span> cm</p></div>
+      </section>
+      <section class="calculator-panel" aria-labelledby="image-title"><h2 id="image-title">Thin lens image distance</h2><p>Calculate image distance and magnification from object distance and focal length. Negative image distance indicates a virtual image.</p>
+        <div class="field"><label for="u_input">Object distance (cm)</label><input type="number" id="u_input" step="any" required min="0.000001" aria-describedby="u_input_help"><small id="u_input_help">Enter the distance without a minus sign.</small></div>
+        <div class="field"><label for="f_input">Lens focal length (cm)</label><input type="number" id="f_input" step="any" required data-nonzero aria-describedby="f_input_help"><small id="f_input_help">Use a signed focal length; it cannot be zero.</small></div>
+        <button class="button primary" type="button" data-calculate="calcimage" data-inputs="u_input f_input">Calculate image distance</button><p class="form-error" role="alert"></p>
+        <div class="result-box" role="status" aria-live="polite" aria-atomic="true"><p>Image distance: <span id="dist_image">—</span> cm</p><p>Magnification: <span id="magnification">—</span></p><p>k (object / focal length): <span id="k_object">—</span><br>j (image / focal length): <span id="j_image">—</span></p></div>
+      </section>
+    </div>
+    <p class="page-return"><a class="text-link" href="../index.html">← Back to the notebook</a></p>
+  </main>
+  <footer class="site-footer wrap"><span>© <span data-year>2026</span> Shivam Maurya</span><span class="location"><span class="status-dot"></span> Ballia, India <span class="footer-clock" data-clock></span></span><a href="#main">Back to top ↑</a></footer>
+<script>
             function calcAFD() {
                 var input_power = parseFloat(document.getElementById("power_input").value);
                 var input_distance = parseFloat(document.getElementById("distance_input").value);
@@ -40,28 +50,7 @@
                 document.getElementById("apparent").innerHTML = input_distance.toFixed(2);
             }
         </script>
-        <hr>
-
-        <!-- LENS FORMULA DISTANCE CALCULATOR-->
-
-        <h1>Image distance calculator based on thin lens relation</h1>
-        
-        <p class="inputHeading">Object distance in cm (Don't enter minus sign):</p>
-        <input type="text" class="input" id="u_input">
-        <p>The focal length of lens in cms</p>
-        <input type="text" class="input" id="f_input">
-
-        <input type="button" class="button" value="Calculate Image Distance" onclick="calcimage()">
-        <br>
-        Image distance will be <span id="dist_image"></span> cms.
-        For virtual objects, it will come out to be negative.<br>
-
-        Magnification is <span id="magnification"></span><br>
-
-        Your k is <span id="k_object"></span>.
-        Your j is <span id="j_image"></span>.
-
-        <script>
+<script>
             function calcimage() {
                 var input_u = parseFloat(document.getElementById("u_input").value);
                 var input_f = parseFloat(document.getElementById("f_input").value);
@@ -76,9 +65,5 @@
                 document.getElementById("magnification").innerHTML = m.toFixed(2)
             }
         </script>
-
-        <hr>
-        Go back <a href="../index.html">home</a>
-
-    </body>
+</body>
 </html>
